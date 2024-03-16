@@ -1,0 +1,91 @@
+---
+title: "Biol7263 Installation instructions"
+author: "Matthew Toomey"
+date: "8/9/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+The aim of Biol7263 is to introduce you to a variety of tools, mostly centered around R, to handle computational and data presentation tasks that we commonly encounter in biology. The aim of this seminar is develop an approach to handling data and analyses in efficient ways that can easily be shared with others in your field. We will not delve deep into the theory and application of specific analytic approaches, but it is my hope that the tools and workflows set out here will help your learn, implement, and communicate the apporaches specific to your field of study. 
+
+For seminar, you will need to **bring your own laptop computer** with the following software setup:
+
+# Install R 
+
+Follow this link: [http://lib.stat.cmu.edu/R/CRAN/](http://lib.stat.cmu.edu/R/CRAN/) and choose your platform (Windows, Mac, or Linux). The latest R version is: R 4.2.1 “Funny-Looking Kid”.
+
+- If you already have R and RStudio installed verify it is the latest version: it is listed at the top of the console when you open RStudio. If you would like to keep the packages in your library, check out this help page: https://www.r-bloggers.com/2017/05/upgrade-r-without-losing-your-packages/. For RStudio, go to Help -> check for updates.
+
+- **For Windows**, click the “install R for the ﬁrst time”, which is blue and bold next to “base.” Then ‘Download R 4.2.1 for Windows.’ If you download and install with the defaults, it will install both the 32 and 64 bit R
+versions. You can delete the one that does not match with your processor.
+
+- **For Mac**, choose the ﬁle that corresponds to your Mac OS X system version. If you have everything up to date, you can download and install 4.2.1 (just click and open the .pkg ﬁle).
+
+- **For old Macs** (where you cannot update to the latest OS X software): Go to the same link https://lib.stat.cmu.edu/R/CRAN/ and click “Download for (Mac) OSX”. Scroll down and you will see a list of releases. Choose the .pkg ﬁle that corresponds to your software. If you have a version higher than 10.13 (High Sierra), you can choose the latest release.
+
+# Install R studio
+
+Go here: https://rstudio.com/products/rstudio/download/#download
+
+- Choose and open the .exe ﬁle if you are a Windows user
+- Choose and open the .dmg ﬁle if you are a Mac user
+
+If you have an old Mac : here is a list of older versions - https://rstudio.com/products/rstudio/older-versions/
+
+### Install R markdown
+
+To setup Markdown in R, open Rstudio and then open a markdown file as shown below
+
+```{r, out.width = "400px", echo=FALSE}
+knitr::include_graphics("Rmd_setup.png")
+```
+
+This should bring up a dialog asking if you want to install the required packages. Click yes. Once installed a dialog box should pop up asking you to name your markdown file. Go ahead close out of this. The required packages should now be installed. 
+
+# Install Git
+
+For this class we will implement and manage version control with git through R. To do this you will need git software. Please download and install git from [git-scm.com](https://git-scm.com). 
+
+# Setup a github account 
+
+We will use [GitHub](github.com) to archive and share homework assignments and class projects. If you do not yet have a github account, please sign up for a free, public account. 
+
+### Link you github account in R studio
+
+*Don't worry about this part now. We can do this together in seminar*
+
+- To share material between your local computer and github you will need to link the account. To do this set your github email in RStudio (only once when you ﬁrst commit) using this code and email and name you used to sign up for GitHub:
+
+```{bash}
+git config --global user.email "YOURNAME@utulsa.edu"
+git config --global user.name "YOURNAME"
+```
+
+-  When you push for the ﬁrst time it prompts you to log in (via a pop-up window)
+  - You can choose ‘authorize on browser,’ log in, and click allow access
+
+# Install tidyverse package
+
+*Don't worry about this part now. We can do this together in seminar*
+
+The [tidyverse](https://www.tidyverse.org/) contains a variety of R packages with functions and standardized syntax we will use throughout the course. Tidyverse is not part of the base R installation. Therefore we will need to install with the following code in the console of R studio: 
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+
+# Other helpful software
+
+### Text editor
+
+Rstudio includes an editor that is excellent for writing R code and can hadle many other task. However, there are time when we may want to work outside of R studio. Here a standalone text editor will be helpful. There are many options, but the one I am most familiar with is [Notepad++](https://notepad-plus-plus.org/downloads/). This resembles the basic windows notepad, but has a range of additional functions that are helpful to manage code and other text files. If you find another option you prefer, feel free to use that one. 
+
+### Inkscape
+
+R has an excellent tools for generating data plots, but composing figures for publication often involves not only data plots, but drawings, images, maps etc. This can be done within R, but is often easier done in a vector graphics program. The most popular program for this is Adobe Illustrator, which does an excellent job, but is expensive! Many of the same functions can be done in the free program [Inkscape](https://inkscape.org/). This is the tool I have used for >10 years to complete final drafts of my publication figures. 
+
+### Gimp
+
+In your research you may also need to edit bitmap images. Photoshop is the obvious choice, but again can be expensive. I typically use the freely available image editor [GIMP](https://www.gimp.org/) for this sort of work. 

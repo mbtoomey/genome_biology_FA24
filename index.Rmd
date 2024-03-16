@@ -12,7 +12,7 @@ This site contains course materials for BIOL7263 Genome Biology, Fall 2024.
 
 ## Course Materials
 
-[Textbook: Brown, T. A. (2023). Genomes 5. CRC Press.](https://www.routledge.com/Genomes-5/Brown/p/book/9780367674076)
+Textbook: [Brown, T. A. (2023). Genomes 5. CRC Press.](https://www.routledge.com/Genomes-5/Brown/p/book/9780367674076)
 
 [Course Syllabus](CourseMaterials/CourseSyllabus.html) 
 

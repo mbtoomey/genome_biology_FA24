@@ -1,0 +1,94 @@
+---
+title: "BIOL7263 - Fall 2024 - Genome Biology"
+author: "Course Syllabus"
+date: "3/16/2024"
+output:
+  prettydoc::html_pretty:
+    theme: Cayman
+    highlight: github
+---
+
+___
+
+## Class Meetings
+
+TBD
+
+## Instructor
+
+Matthew Toomey  
+**Office**: 305 Oliphant Hall, enter OH 304 then first door on right (305)  
+**Email**: [mbt6332@utulsa.edu](mailto:mbt6332@utulsa.edu)  
+**Phone**: (918) 631-2206  
+**Office Hours**: By appointment, in-person meetings or video conferences 
+
+## Course description 
+
+TBD
+
+## Pre-Requisites
+* A personal laptop computer that you bring to all lecture and lab meetings
+    - Mac or Windows, with battery power to last 2.5 hours
+    - all [required software packages](CourseMaterials/InstallationInstructions.html) installed and working
+    - wireless access and an active TU email account
+* Graduate standing as a PhD or MS student at TU
+* Undergraduates by invitation only after consultation with the instructor
+
+## Course Learning Outcomes
+At the conclusion of this class students will::
+
+1.   
+2. 
+3. 
+4. 
+
+
+## Readings
+
+Textbook: [Brown, T. A. (2023). Genomes 5. CRC Press.](https://www.routledge.com/Genomes-5/Brown/p/book/9780367674076)
+
+## Seminar Structure
+
+TBD 
+
+## Assignments
+
+**Participation** TBD
+
+**Exams** TDB
+
+**Presentation** TBD  
+
+### Grading 
+
+Item |   | Total points  
+:------------  | :-------------  | :------------
+Participation  | -  | 100   
+Exam  | 2 x 50 points  | 100   
+Presentation | 1 x 100 points  | 100  
+ **Grand total**  | -  | **300**
+
+The grading scale will be as follows:  89.50-100% - A, 79.50-89.49% - B, 69.50-79.49% - C, 59.50-69.49% - D, < 59.50% - F. No exceptions. 
+
+## Class Schedule
+
+Please refer to the [course website](index.html) for an up-to-date schedule
+
+## Academic misconduct
+
+All instances of academic misconduct will follow the [Policies and Procedures Relating to Academic Misconduct of Undergraduates for the College of Engineering and Natural Sciences for graduate students](https://univoftulsa.sharepoint.com/sites/AcademicAffairs/academicpolicies/Shared%20Documents/Forms/AllItems.aspx?id=/sites/AcademicAffairs/academicpolicies/Shared%20Documents/Graduate%20School%20Academic%20Misconduct%20Policy-%20August%202017.pdf&parent=/sites/AcademicAffairs/academicpolicies/Shared%20Documents)
+
+Any evidence of misconduct will result in a score of zero, but students may also be dismissed from the course and automatically assigned a grade of F.
+
+## Student Access and Success
+
+All students are encouraged to familiarize themselves with and take advantage of services provided by The Student Success Team, including Student Access, Student Success Coaching, and tutoring. To request a student success coach to improve study skills, email successcoaches@utulsa.edu. To request a tutor, email tutoring@utulsa.edu.
+
+Students who have or believe they may have a disability and would like to set up accommodations should contact Student Access within the Student Success Team to discuss their needs and facilitate their rights under the Americans with Disabilities Act and related laws. 
+
+## Know your Title IX
+
+Sexual misconduct is prohibited by Title IX of the Educational Amendments of 1972 ("Title IX") and will not be tolerated within the TU community.  For more information about your rights under Title IX, please visit our Policies and Laws page https://utulsa.edu/sexual-violence-prevention-education/policies-laws/ on the TU website or contact the Title IX Coordinator at 918-631-2321.  
+
+
+
