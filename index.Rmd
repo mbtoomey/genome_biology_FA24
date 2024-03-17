@@ -16,68 +16,48 @@ Textbook: [Brown, T. A. (2023). Genomes 5. CRC Press.](https://www.routledge.com
 
 [Course Syllabus](CourseMaterials/CourseSyllabus.html) 
 
-[Scheduling Survey](https://forms.gle/CUaDDMa7enTy3YL59)
-
-[Presentation sign-up sheet](https://docs.google.com/spreadsheets/d/1iSrRPsjxpzHALhK4eL7URGmOxW1vBUWvOam4CoJK8ss/edit?usp=sharing)
+[Scheduling Survey]()
 
 [Software Installation](CourseMaterials/InstallationInstructions.html)
 
-[Presentation Assignment](Assignments/LessonAssignment.html)   
+[Presentation Assignment](Assignments/LessonAssignment.html) 
+
+[Presentation sign-up sheet]()
 
 ___
 
 ## Lecture Outlines & Homework Assignments
 
-Date (week of)  | Lecture | Assignments
-------------- |----------- | -------------
-August 22  | [Class organization and scheduling](https://forms.gle/CUaDDMa7enTy3YL59) | -  
-August 29  | RStudio, [Git](Lectures/Lesson2.html) | [Assignment 1](Assignments/Assignment1.html)  
-September 5  | [Rmarkdown](Lectures/Lesson3.html) | [Assignment 2](Assignments/Assignment2.html)  
-September 12  | [Intro to Regular Expressions](Lectures/Lesson4.html)| [Assignment 3](Assignments/Assignment3.html), [MBT solution 3](Assignments/Exercise3_solutions.html)
-September 19  |  [Intro to R](Lectures/Lesson2a.html), [Data import/export with readr](Lectures/Lesson5b.html), [dplyr and wrangling](Lectures/Lesson5.html)| --
-September 26  | [Tidy](Lectures/Lesson6.html), [Merge and Compare](Lectures/Lesson6b.html) | [Assignment 4](Assignments/Assignment4.html), [MBT solution 4](Assignments/Assignment4.R), [Assignment 5](Assignments/Assignment5.html), [MBT solution 5](Assignments/assignment5.R)
-October 3  | [Intro to ggplot](Lectures/Lesson7.html), [ggplot aesthetics](Lectures/Lesson7b.html), [facet and patchwork](Lectures/Lesson7c.html) | -- 
-October 10  | [Beyond Bar Graphs](Lectures/Lesson7d.html), Inkscape | [Assignment 6](Assignments/Assignment6.html), [MBT solution 6](Assignments/Assignment6.R)  
-October 17  | [GIS in R](Lectures/Lesson9/Lesson9.html) | [Assignment 7](Assignments/Assignment7.html)  
-October 24  | [Acuity View Lesson - Mierow](https://tanman6711.github.io/MierowBIOL7263/Assignments/AcuityViewLesson.html), [Loop the loop - Adamic](https://emadamic.github.io/AdamicBIOL7263/MyLesson/LoopLesson.html) | see lesson link
-October 31  | [AIC in R - West](https://amycwest.github.io/WestBIOL7263/Model_selection/Model_selection_markdown.html), [PCA in R - Cartmell](https://laci-cartmell.github.io/CARTMELLBIOL7263.rmd/#PCA_Lesson) | see lesson links  
-November 7  | [Functions in R - Lewis](https://cari-d-lewis.github.io/LewisBIOL7263/Assignments/Functions_R.html), [Rentrez - Paslay](https://github.com/CalebPaz28/PaslayBIOL7263/blob/master/Project/rentrez_presentation_notes.R) | see lesson links  
-November 14  | [Phytools - Bierbaum](https://emilybierbaum.github.io/BierbaumBIOL7263/Bierbaum.html), [Geomorph - Hansen](https://bhansen21.github.io/HansenBIOL7263/Assignments/Geomorph.html) | see lesson links
-November 21  | Thanksgiving break | -  
-November 28  | [Heatmaps - Herrboldt](https://madisonherrboldt.github.io/HerrboldtBIOL7263/My_Lesson_Heatmaps/MAH_Heatmap_Lesson.html), [Creating your own package - Delaporte](https://elisead3.github.io/DelaporteBIOL7263/RPackagesLesson/Creating-R-Packages-Lesson.html), [Spatial Data - Pletcher](https://omp9336.github.io/PletcherBIOL7263/Pletcher%20Lesson/Spatial-Data-Lesson.html) | see lesson links  
-December 5  | Last day of classes | -  
+Date (week of)  | Lecture | Reading | Assignments
+------------- |----------- | ------------- | ------------- 
+August 26  | [Class organization and scheduling](https://forms.gle/CUaDDMa7enTy3YL59) | - | OSCER account setup 
+September 2  | Review of DNA, RNA, and the Central Dogma | Chapter 1 (Brown) | [Assignment 1]()  
+September 9  | Sequencing Technology,Genome assembly, and alignment  | Chapter 4 (Brown) | [Assignment 2]()  
+September 16  | Genome Adventure - Part 1 | - | -
+September 23  | Genome annotation and QC | Chapter 5 & 6 (Brown) | [Assignment 3]()
+September 30  | Genome Adventure - Part 2 | - | -
+October 7  | Eukaryotic Genome Structure and Organization | Chapter 7 (Brown) | -
+October 9  |Genome Adventure - Part 3 | - | -
+October 14  | Prokaryotic and Viral Genome Structure and Organization, Mobile genetic elements | Chapter 8 & 9 (Brown) |  [Assignment 4](), [Assignment 5]()
+October 21  |Genome Adventure - Part 4 | - | -
+October 28  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | -
+November 4  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | [Assignment 6]()  
+November 11  | Causes, Consequences, and Analysis of Sequence Variation | Chapters 15 & 17 (Brown) | [Assignment 7]()  
+November 18  | Causes, Consequences, and Analysis of Structural Variation | Chapters 15 & 16 (Brown) | see lesson link
+November 25  | Thanksgiving break | - | - 
+December 2  | Two Decades of Human Genome Science | - | see lesson links 
+December 9  | Last day of classes | - | - 
 
 ___
 
 ### Important Dates
 - 26 August: Last day to add classes through self-service
-- 30 August: Last day to add/drop through advising
-- 5 September: Labor day
-- 11 November: Last day to withdraw
-- 21-25 November: Thanksgiving Break
-- 5 December: Last day of classes
+- 2 September: Labor day
+- 3 September: Last day to add/drop through advising
+- 13 November: Last day to withdraw
+- 25-29 November: Thanksgiving Break
+- 9 December: Last day of classes
 
 ___
 
-## Member portfolios
-
-Name  | Github site | Portfolio website
-------------- |----------- | -------------
-Matt Toomey|[Github](https://github.com/mbtoomey)|[Portfolio](https://mbtoomey.github.io/Biol_7263/)
-Elise Delaporte|[GitHub](https://github.com/elisead3)|[Portfolio](https://elisead3.github.io/DelaporteBIOL7263/)
-Emily Adamic|[Github](https://github.com/emadamic)|[Portfolio](https://emadamic.github.io/AdamicBIOL7263/)
-Madison Herrboldt|[Github](https://github.com/madisonherrboldt)|[Portfolio](https://madisonherrboldt.github.io/HerrboldtBIOL7263/)
-Rebekah Hansen|[Github](https://github.com/bhansen21)|[Portfolio](https://bhansen21.github.io/HansenBIOL7263/)
-Anand Karki|[Github](https://github.com/abk774-22)|[Portfolio](https://abk774-22.github.io/KarkiBIOL7263_learning/)
-Cari Lewis|[Github](https://github.com/Cari-D-Lewis)|[Portfolio](https://cari-d-lewis.github.io/LewisBIOL7263/)
-Morgan Beeman|[Github](https://github.com/Nezara-viridula)|[Portfolio](https://nezara-viridula.github.io/BeemanBiol7262/)
-Olivia Pletcher|[Github](https://github.com/omp9336)|[Portfolio](https://omp9336.github.io/PletcherBIOL7263/)
-Amy West|[Github](https://github.com/Amycwest)|[Portfolio](https://amycwest.github.io/WestBIOL7263/)
-Caleb Paslay|[Github](https://github.com/CalebPaz28)|[Portfolio](https://calebpaz28.github.io/PaslayBIOL7263/)
-Laci Cartmell|[Github](https://github.com/laci-cartmell)|[Portfolio](https://laci-cartmell.github.io/CARTMELLBIOL7263.rmd/)
-Emily Bierbaum|[Github](https://github.com/EmilyBierbaum/)|[Portfolio](https://emilybierbaum.github.io/BierbaumBIOL7263/)
-Tanner Mierow|[Github](https://github.com/tanman6711/MierowBIOL7263)|[Portfolio](https://tanman6711.github.io/MierowBIOL7263/)
-
-
-
-
+## XXXXX
