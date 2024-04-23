@@ -30,9 +30,9 @@ ___
 
 Date (week of)  | Lecture | Reading | Assignments
 ------------- |----------- | ------------- | ------------- 
-August 26  | [Class organization and scheduling](https://forms.gle/CUaDDMa7enTy3YL59) | - | OSCER account setup 
+August 26  | [Class organization and scheduling]() | - | OSCER account setup 
 September 2  | Review of DNA, RNA, and the Central Dogma | Chapter 1 (Brown) | [Assignment 1]()  
-September 9  | Sequencing Technology,Genome assembly, and alignment  | Chapter 4 (Brown) | [Assignment 2]()  
+September 9  | Sequencing Technology, Genome assembly, and alignment  | Chapter 4 (Brown) | [Assignment 2]()  
 September 16  | Genome Adventure - Part 1 | - | -
 September 23  | Genome annotation and QC | Chapter 5 & 6 (Brown) | [Assignment 3]()
 September 30  | Genome Adventure - Part 2 | - | -
