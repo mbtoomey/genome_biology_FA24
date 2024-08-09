@@ -16,8 +16,6 @@ Textbook: [Brown, T. A. (2023). Genomes 5. CRC Press.](https://www.routledge.com
 
 [Course Syllabus](CourseMaterials/CourseSyllabus.html) 
 
-[Scheduling Survey]()
-
 [Software Installation](CourseMaterials/InstallationInstructions.html)
 
 [Presentation Assignment](Assignments/LessonAssignment.html) 
@@ -30,22 +28,21 @@ ___
 
 Date (week of)  | Lecture | Reading | Assignments
 ------------- |----------- | ------------- | ------------- 
-August 26  | [Class organization and scheduling]() | - | OSCER account setup 
-September 2  | Review of DNA, RNA, and the Central Dogma | Chapter 1 (Brown) | [Assignment 1]()  
-September 9  | Sequencing Technology, Genome assembly, and alignment  | Chapter 4 (Brown) | [Assignment 2]()  
-September 16  | Genome Adventure - Part 1 | - | -
-September 23  | Genome annotation and QC | Chapter 5 & 6 (Brown) | [Assignment 3]()
-September 30  | Genome Adventure - Part 2 | - | -
-October 7  | Eukaryotic Genome Structure and Organization | Chapter 7 (Brown) | -
-October 9  |Genome Adventure - Part 3 | - | -
-October 14  | Prokaryotic and Viral Genome Structure and Organization, Mobile genetic elements | Chapter 8 & 9 (Brown) |  [Assignment 4](), [Assignment 5]()
-October 21  |Genome Adventure - Part 4 | - | -
-October 28  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | -
-November 4  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | [Assignment 6]()  
-November 11  | Causes, Consequences, and Analysis of Sequence Variation | Chapters 15 & 17 (Brown) | [Assignment 7]()  
-November 18  | Causes, Consequences, and Analysis of Structural Variation | Chapters 15 & 16 (Brown) | see lesson link
-November 25  | Thanksgiving break | - | - 
-December 2  | Two Decades of Human Genome Science | - | see lesson links 
+August 29  | [Class Introduction and Working with the OSCER]() | - | [Linux/UNIX basics](),
+September 5  | Review of DNA, RNA, and the Central Dogma | Chapter 1 (Brown) | [Begin Genomic Adventure](https://github.com/mbtoomey/genomics_adventure)  
+September 12  | Sequencing Technology, Genome assembly, and alignment  | Chapter 4 (Brown) | [Assignment 2]()  
+September 19  | Genome Adventure - Part 1 | - | -
+September 26  | Genome annotation and QC | Chapter 5 & 6 (Brown) | [Assignment 3]()
+October 3  | Genome Adventure - Part 2 | - | -
+October 10  | Eukaryotic Genome Structure and Organization | Chapter 7 (Brown) | -
+October 17  |Genome Adventure - Part 3 | - | -
+October 24  | Prokaryotic and Viral Genome Structure and Organization, Mobile genetic elements | Chapter 8 & 9 (Brown) |  [Assignment 4](), [Assignment 5]()
+October 31  |Genome Adventure - Part 4 | - | -
+November 7  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | -
+November 14  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | [Assignment 6]()  
+November 21  | Causes, Consequences, and Analysis of Sequence Variation | Chapters 15 & 17 (Brown) | [Assignment 7]()  
+November 28  | Thanksgiving break | - | - 
+December 5  | Two Decades of Human Genome Science | - | see lesson links 
 December 9  | Last day of classes | - | - 
 
 ___
