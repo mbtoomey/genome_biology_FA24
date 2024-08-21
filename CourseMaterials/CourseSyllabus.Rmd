@@ -29,7 +29,7 @@ This seminar will introduce foundational concepts in the genome structure, funct
 ## Pre-Requisites
 * A personal laptop computer that you bring to all lecture and lab meetings
     - Mac or Windows, with battery power to last 2.5 hours
-    - all [required software packages](CourseMaterials/InstallationInstructions.html) installed and working
+    - all [required software packages](InstallationInstructions.html) installed and working
     - wireless access and an active TU email account
 * Graduate standing as a PhD or MS student at TU
 * Undergraduates by invitation only after consultation with the instructor
