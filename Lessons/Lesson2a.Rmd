@@ -1,0 +1,283 @@
+---
+title: "R concepts"
+author: "Matthew Toomey"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## The R environment
+
+Quoting from [An Introduction to R](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf):
+
+R is an integrated suite of software facilities for data manipulation, calculation and graphical display. Among other things it has:  
+
+- an effective data handling and storage facility,    
+- a suite of operators for calculations on arrays, in particular matrices,  
+- a large, coherent, integrated collection of intermediate tools for data analysis,  
+- graphical facilities for data analysis and display either directly at the computer or on hardcopy, and  
+- a well developed, simple and effective programming language (called ‘S’) which includes conditionals, loops, user defined recursive functions and input and output facilities. (Indeed most of the system supplied functions are themselves written in the S language.)
+
+Here I will introduce a few fundamental concepts that underlie operations in R and how data is handled. 
+
+## R scripts and commenting
+
+Up to now we have primarily been working with R markdown (`.rmd` files) documents. These are great for communicating your finalized analyses and results, but not ideal for coding complex analyses. The primary way you will want to code is in an R script (`.R` file). Once you have finalized your R script, then you can use elements from the script to build your markdown file and present your analyses and results. 
+
+### Organizing your R script
+  
+  
+#### 1. Provide an informative header
+  
+  
+In commented text (starting with a #) provide:
+
+- Name of the script  
+- Purpose of the script 
+- Author  
+- Date initiated and dates that it has been updated  
+- Additional notes if applicable  
+
+I have setup a standardized header format for myself that is avaialable [here](https://github.com/mbtoomey/Biol_7263/blob/main/CourseMaterials/header.R)
+
+In R studio, I have set up this header as a code snippet that I can call up my entering `mbt_header`. More details about code snippets can be found [here](https://support.rstudio.com/hc/en-us/articles/204463668-Code-Snippets?version=2022.07.1%2B554&mode=desktop)
+
+I like generally structure my code:  
+1. Load required packages
+2. Load data files  
+3. Code analyses and plots
+
+#### 2. Provide informative comments throughout 
+
+![](http://www.quickmeme.com/img/e0/e0f56e703b6ec14b1093a1d8c2fd5235aafc592f20ad80cf1fc23b56d66f061c.jpg)  
+
+Comments are essential for you to understand why you did what you did at some point in the remote future. 
+
+Each line of a comment should begin with the comment symbol and a single space: `# `. Comments should be in sentence case, and only end with a full stop if they contain at least two sentences. 
+
+## Some basic operations in R
+
+### Assigning a variable
+
+```{r, eval=FALSE}
+x <- 12 # the <- is preffered
+y = 6 # this will work, but can cause trouble/confusion
+
+# We can then use these variables in operations
+
+z <- x + y
+```
+ 
+### Naming variables
+```{r, eval=FALSE}
+k <- 16 # Always start with a lowercase letter
+koalaMass <- 45 # No spaces! This is called "camelCaseFormatting" 
+koala_mass <- 34 # "snake_case_formatting" is another good option
+koala.mass <- 23 # permissable, but should be avoided
+```
+
+Naming involves trade-off between detail and usability. However, you can always add additional details in the comments in your code.
+
+### R's Four Data Types
+
+Dimensions  | Homogeneous | Heterogeneous
+------------- | ------------- | -------------
+1-dimension  | Atomic Vector | List
+2-dimensions  | Matrix | Data Frame
+n-dimenions   | (array) |          |
+
+### Types of Atomic Vectors
+- character strings
+- integers
+- double
+- integers, doubles are "numeric"
+- logical
+- factor
+- vector of lists!
+
+### Atomic vectors
+
+The simplest way to make an atomic vextor is the combine function `c()`
+
+
+```{r, eval=FALSE}
+# the combine function
+z <- c(4, 6, 7, 22, 14) 
+print(z)
+typeof(z)
+is.numeric(z)
+
+# c() always "flattens" to an atomic vector
+z <- c(c(4,6),c(45,23)) 
+print(z)
+
+# character strings with single or double quotes
+z <- c("earth","venus",'mars') 
+print(z)
+
+# building logicals
+# Boolean, not with quotes, all caps
+z <- c(TRUE,TRUE,FALSE) 
+# avoid abbreviations T, F which will work
+print(z)
+typeof(z)
+is.logical(z)
+is.integer(z)
+
+```
+
+### Three Properties of a Vector
+
+#### Type
+
+```{r, eval=FALSE}
+z <- c(1.1, 1.2, 3, 4.4)
+typeof(z) # gives type
+is.numeric(z) # is. gives logical
+as.character(z) # as. coerces variable
+```
+
+#### Length
+```{r, eval=FALSE}
+length(z) # gives number of elements
+length(y) # throws error if variable does not exist
+
+```
+
+#### Names
+```{r, eval=FALSE}
+z <- runif(5) # this function generates a random uniform distribution of length 5
+
+# name is an optional attribute not initially assigned
+names(z) 
+print(z)
+# add names later after variable is created
+names(z) <- c("mercury","venus","earth","mars","jupiter")
+print(z)
+
+# add names when variable is built (with or without quotes)
+ z2 <- c(larry=3.3, curly=10, moe=2)
+print(z2)
+
+# clear the names
+names(z2) <- NULL
+```
+
+### `NA` and other data types
+```{r, eval=FALSE}
+# NA values for missing data
+z <- c(3.2,3.3,NA) # NA is a missing value
+typeof(z)
+length(z)
+typeof(z[3]) # what is the type of third element
+
+z1 <- NA
+typeof(z1) #NA on its own is classifed and a logical
+
+is.na(z) # logical operator to find missing values. Returns an atomic vector of logicals
+mean(z) # won't work because of NA
+mean(z) # won't work because of NA
+na.omit(z) #will drop NAs from the vector
+#we can combine this with mean to find the mean of the remaining values
+mean(na.omit(z))
+
+#We could also do this by specifying the values that are not NA in the vector indes
+is.na(z)# evaluate to find missing values
+!is.na(z) # use ! for NOT missing values
+mean(!is.na(z)) # wrong answer based on TRUE FALSE!!
+mean(z[!is.na(z)]) # correct use of indexing
+#-----------------------------
+
+# NaN, -Inf, and Inf from numeric division
+z <-  0/0   # NaN
+typeof(z)
+z <- 1/0   # Inf
+-1/0  # - Inf
+#-------------------------------
+# NULL is an object that is nothing!
+# a reserved word in R
+z <- NULL
+typeof(z)
+length(z)
+is.null(z) # only operation that works on a null
+```
+
+### Important features of atomic vectors 
+
+#### Coercion 
+
+All values in an atomic vector must be of the same type. If they are different, R coerces them follow these rules of priority:
+
+- **logical -> integer -> double -> character**
+
+```{r, eval=FALSE}
+
+a <- c(2, 2.0)
+print(a)
+typeof(a) # technically integer coerced to numeric
+
+b <- c("purple","green")
+typeof(b)
+
+d <- c(a,b)
+print(d)
+typeof(d) #combining the numeric "double" with a character results in all of the values getting coerced to characters. # A pain but can help you spot "Mistakes" in numeric variables 
+
+# logicals get coerced to integers allowing for useful calculations, but also problematic misunderstandings  
+
+a <- runif(10)
+print(a)
+
+# Comparison operators yield a logical result
+a > 0.2
+
+# do math on a logical and it coerces to an integer!
+
+# How many elements are greater than 0.2?
+sum(a > 0.2)
+
+# What proportion of the vector elements are greater than 0.2?
+
+mean(a > 0.2)
+
+#Approximately what proportion of observations drawn from a normal (0,1) distribution are larger than 2.0?
+
+mean(rnorm(1000) > 2)
+```
+
+
+#### Vectorization
+
+R applies operations/functions to **each element** of the vector. 
+
+```{r, eval=FALSE}
+# adding a constant to a vector
+z <- c(10,20,30)
+z + 1
+
+# what happens when vectors are added?
+
+y <- c(1,2,3)
+z + y
+
+# results is an "element by element" operation on the vector
+# most vector operations can be done this way
+
+z^2
+
+```
+
+
+#### Recycling
+
+Operations involving more than one vector will be carried out element by element in the order of each vector. If the vectors are of different length, the shorter vector will recycle back around to the first value and continue the operation. Be careful of this! 
+
+```{r, eval=FALSE}
+# but what if vector lengths are not equal?
+z <- c(10,20,30)
+x <- c(1,2)
+z + x
+
+# warning is issued by calculation is still made
+# shorter vector is always "recycled"
+```
+

@@ -1,0 +1,30 @@
+---
+title: 'BIOL7263 - Class Project'
+author: "Matthew Toomey"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: Cayman
+    highlight: github
+---
+___
+
+Each student will complete an independent sequence assembly, alignment, annotation, and/or transcriptome analysis. This can be an analysis of your own data, data from your lab group, or publicly availble sequencing data. This assignment will consist of three parts: 
+
+1) A brief research proposal (< 1 page - 50 pts - **Due Sept 12th**)
+- *Introduction* - study species/system and relevant background
+- *Research question(s)*
+- *Methods* - general description of the analysis approaches you will use.
+- *Predictions/expected outcomes*
+
+2) Well documented and *reproducible* analysis (50 pts - **due Dec 9th**)
+- a markdown document describing your data sources, analysis steps, and links to .sh and .sbatch files to run analyses
+
+3) Class presentation reporting your progess on your project (~25 min - 50 pts - **sign up for presentation time below**)
+- *Introduction* - study species/system and relevant background
+- *Research question(s)*
+- *Methods* - general description of the analysis approaches you will use.
+- *Results and interpretation*
+
+
+Please schedule your project presentations here -  [Sign up sheet](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing).

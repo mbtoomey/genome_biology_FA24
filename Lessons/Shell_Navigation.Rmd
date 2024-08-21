@@ -1,0 +1,70 @@
+---
+title: "Unix basics"
+author: "Matthew Toomey"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+The UNIX shell is a very old (~50 years) command line interface for UNIX systems that you will likely encounter if you interact with high performance computing clusters or are implementing bespoke bioinformatics software packages. This interface is very different from modern GUI interfaces and can be disorienting if you are unfamiliar will the underlie organization of the system. Despite its rudimentary appearance, the shell is a powerful and efficient way to interact with large data files.     
+
+### The organization of the computer
+- With shell you are "inside" the file system, rather than viewing from above
+- Hierarchical tree from root to branch tips with forks
+- You need to understand where you are and direct actions/programs to correct directories and file locations
+
+### Where am I? 
+- `pwd` - print working directory
+- this will return your current location 
+
+### What is here? 
+- `ls` - prints a list of files and folders in the current directory 
+- `ls <path to folder>` - will list files and folders in whatever you list in the "path to folder".  
+  
+#### Useful options with `ls`
+- `ls -a` shows all including hidden files
+- `ls -l` long format with lots of detail
+- `ls -R` recursively list subdirectories (careful!)
+- `ls -1` list one item per line (useful for programming)
+- `ls -G` list files and directories in color
+- `ls -F` use symbols for different file types
+    + no symbol = file
+    + `/` = a directory
+    + `*` = an executable shell script
+    
+  
+#### EXERCISE: Open shell, do a listing with ls -GF
+
+### The `cd` command
+- use this to change directories
+- most basic form `cd <directory name>` only works for directories that are "below" your current directory (subdirectories)
+
+
+### short-cuts with `cd`
+- shell opens in your `home` directory
+- `cd ~` always returns you to home in one jump
+- `cd` also takes you home with one less symbol to type
+- `/` takes you to top level root of your computer (rarely needed)
+- `cd ..` moves you up to the next highest directory
+- `cd ../..` moves you up two directories
+
+### Creating files and directories
+- `touch path/to/<filename>` creates a file in the specified directory
+- `mkdir` makes a directory within the current directory
+
+### Removing a file or a directory
+- Be careful, these actions cannot be undon. There is no "trash" folder in the shell
+- `rm <filename>` removes a file 
+- `rmdir <directoryname>` removes a directory (directory must be empty)
+- `rm -r <directoryname>` removes directory and recursively removes all of its subdirectories and files!
+
+### Copying or moving files, folders, or directories
+- `cp sourceFile destinationFile` copies file, folder or directory from source location to somewhere else
+- `mv sourceFile destinationFile` moves file, folder or directory from source location to somewhere else
+
+### Renaming or save as... files, folders, or directories
+- `mv oldName newName` in same location renames file
+- `cp oldName newName` in same location saves a copy of the file to a new name
+
+### These commands will recognize wildcards
+- `rm *.pdf` removes all .pdf files
+- `rm F*.pdf` removes all .pdf files that begin with the letter F

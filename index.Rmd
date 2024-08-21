@@ -18,9 +18,9 @@ Textbook: [Brown, T. A. (2023). Genomes 5. CRC Press.](https://www.routledge.com
 
 [Software Installation](CourseMaterials/InstallationInstructions.html)
 
-[Presentation Assignment](Assignments/LessonAssignment.html) 
+[Class Project Assignment](Assignments/ProjectAssignment.html) 
 
-[Presentation sign-up sheet]()
+[Presentation sign-up sheet](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing)
 
 ___
 
@@ -28,33 +28,30 @@ ___
 
 Date (week of)  | Lecture | Reading | Assignments
 ------------- |----------- | ------------- | ------------- 
-August 29  | [Class Introduction and Working with the OSCER]() | - | [Linux/UNIX basics](),
-September 5  | Review of DNA, RNA, and the Central Dogma | Chapter 1 (Brown) | [Begin Genomic Adventure](https://github.com/mbtoomey/genomics_adventure)  
-September 12  | Sequencing Technology, Genome assembly, and alignment  | Chapter 4 (Brown) | [Assignment 2]()  
-September 19  | Genome Adventure - Part 1 | - | -
-September 26  | Genome annotation and QC | Chapter 5 & 6 (Brown) | [Assignment 3]()
-October 3  | Genome Adventure - Part 2 | - | -
-October 10  | Eukaryotic Genome Structure and Organization | Chapter 7 (Brown) | -
-October 17  |Genome Adventure - Part 3 | - | -
-October 24  | Prokaryotic and Viral Genome Structure and Organization, Mobile genetic elements | Chapter 8 & 9 (Brown) |  [Assignment 4](), [Assignment 5]()
-October 31  |Genome Adventure - Part 4 | - | -
-November 7  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | -
-November 14  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | [Assignment 6]()  
-November 21  | Causes, Consequences, and Analysis of Sequence Variation | Chapters 15 & 17 (Brown) | [Assignment 7]()  
+August 29  | [Class Introduction and Working with the OSCER](),[Linux/UNIX basics](Lessons/Shell_Navigation.html), [Git](Lessons/Lesson2.html), and [Markdown](Lessons/Lesson3.html) | - | Setup Github page and link a .md file
+September 5  | Review of DNA, RNA, and the Central Dogma | Chapter 1 (Brown) | [Begin Genomics Adventure](https://github.com/mbtoomey/genomics_adventure)  
+September 12  | Sequencing Technology, Genome assembly, and alignment  | Chapter 4 (Brown) | [Genomics Adventure Chapter 2](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_2/task_1.md), [Class Project Proposal](Assignments/ProjectAssignment.html)  
+September 19  | Genome annotation and QC | Chapter 5 & 6 (Brown) | [Genomics Adventure Chapter 3](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_3/task_1.md)
+September 26  | Eukaryotic Genome Structure and Organization | Chapter 7 (Brown) | [Genomics Adventure Chapter 4](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_4/task_1.md)
+October 3  | Prokaryotic and Viral Genome Structure and Organization, Mobile genetic elements | Chapter 8 & 9 (Brown) | [Genomics Adventure Chapter 5](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_5/task_1.md)
+October 10  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | [RNA-seq Analyses]()
+October 17  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | [RNA-seq Analyses]()
+October 24  | Causes, Consequences, and Analysis of Sequence Variation | Chapters 15 & 17 (Brown) | [Variant Calling and Genome-wide FST]()
+October 31  | Review and Discuss Genomics pre-print | - | [Class Project Open Session](Assignments/ProjectAssignment.html)
+November 7  | Review and Discuss Genomics pre-print [Class Project Open Session](Assignments/ProjectAssignment.html) | - | [Class Project Open Session](Assignments/ProjectAssignment.html)
+November 14  | [Class Project Presentations](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing) | - | -    
+November 21  | [Class Project Presentations](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing)  | - | -  
 November 28  | Thanksgiving break | - | - 
-December 5  | Two Decades of Human Genome Science | - | see lesson links 
-December 9  | Last day of classes | - | - 
+December 5  | [Class Project Presentations](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing)  | - | - 
+December 9  | Last day of classes | - | [Project Markdown Due](Assignments/ProjectAssignment.html) 
 
 ___
 
 ### Important Dates
-- 26 August: Last day to add classes through self-service
+- 30 August: Last day to add classes through self-service
 - 2 September: Labor day
 - 3 September: Last day to add/drop through advising
 - 13 November: Last day to withdraw
 - 25-29 November: Thanksgiving Break
 - 9 December: Last day of classes
 
-___
-
-## XXXXX
