@@ -123,7 +123,7 @@ Notice that the job is pending. This happens when there are many jobs on the clu
 
 ## Supercomputer Etiquette
 
-This is a resource that is shared by *many* people, so play nice:angel:!
+This is a resource that is shared by *many* people, so play nice :angel:!
 * Limit use of login nodes to configuring/starting jobs and doing very basic tests
 * Try your best to properly estimate your resource needs
     * Minimizing the requests will mean that your jobs get picked up quicker
