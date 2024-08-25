@@ -87,14 +87,50 @@ bash [path to your .sh script]
 ```
 
 * `#SBATCH --partition=normal` directs the job to the partition of your choice
-* `#SBATCH --ntasks=1` We will always set this to "1", however someday in the future you might have an application allows for parallel process, more details [here](https://www.ou.edu/oscer/support/running_jobs_schooner)
+* `#SBATCH --ntasks=1` We will always set this to "1", however someday in the future you might have an application allows for parallel process, more details [here](https://www.ou.edu/oscer/support/running_jobs_schooner).
 * `#SBATCH --cpus-per-task=1` If your application allows you to use multiple processors/cores to speed up processing you will need to request them here. 
-* `#SBATCH --mem 16G` Here you will set the amount of RAM memory needed for your job. Often the software documentation will give recommendations for miniumums
+* `#SBATCH --mem 16G` Here you will set the amount of RAM memory needed for your job. Often the software documentation will give recommendations for minimums
 * `#SBATCH --output=[job_name]_%J_stdout.txt` this specifies the name of the output file. This is where any of the information that would typically appear in the console, will be written. These files will be save in the directory that you are in when you submit your job. 
 * `#SBATCH --error=[job_name]_%J_stderr.txt` this specifies the name of the error log file. This is where any error messages will be written. 
 * `#SBATCH --job-name=[job_name]` this is where you specify the name of your job that will appear in the SLURM queue. 
 
-You can download the sbatch template here: [template.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/template.sbatch)
+You can download the sbatch template here: [template.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/template.sbatch).
+
+:warning: We will be managing our software through a Conda environment, therefore you must activate the environment before you submit your job. At the beginning of your session enter the following at the command line:
+
+```
+mamba activate [your_conda_environment]
+```
+
+### Submitting and monitoring your job
+
+To submit your job simple enter: 
+```
+sbatch [path to your .sbatch file]
+```
+at the command line. 
+
+Once the job is submitted you can check its status by entering: 
+```
+squeue -u [YOUR_USER_ID]
+```
+
+Example:
+
+![Job status](https://github.com/mbtoomey/genomics_adventure/blob/release/images/fastqc_submission.png)
+
+Notice that the job is pending. This happens when there are many jobs on the cluster. We will have to wait for an indeterminate amount of time. Such is life when you are using a free resource :shrug:
+
+## Supercomputer Etiquette
+
+This is a resource that is shared by *many* people, so play nice:angel:!
+* Limit use of login nodes to configuring/starting jobs and doing very basic tests
+* Try your best to properly estimate your resource needs
+    * Minimizing the requests will mean that your jobs get picked up quicker
+    * But if you underestimate your execution time, you will have to start over
+* Don’t execute servers (e.g., jupyter) on the login nodes
+* Plan your big experiments carefully
+
 
 
 
