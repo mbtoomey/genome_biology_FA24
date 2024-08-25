@@ -30,7 +30,7 @@ I find the easiest way to move files to and from my PC to the OSCER system is wi
 
 To link to OSCER use SFTP protocol, port 22, host: `schooner.oscer.ou.edu` or `dtn2.oscer.ou.edu` for large transfers, and enter your ID and pasword. For example:  
 
-![WinScp](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/winscp.png =250x)
+![WinScp](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/winscp.png){width=50%}
 
 ## Your directories on OSCER
 
