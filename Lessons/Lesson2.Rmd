@@ -39,7 +39,7 @@ In this lesson we will setup and use `git` to track changes and recover earlier 
   - through your browser, go to the github repository you just created
   - click the "clone" button
   - copy the repository url and paste into Rstudio
-- If this is your first time linking to github through Rstudio, you will need to provide log in details for your github account (see [Installation Instructions](CrouseMaterials/InstallationInstructions.html).
+- If this is your first time linking to github through Rstudio, you will need to provide log in details for your github account (see [Installation Instructions](InstallationInstructions.html).
 
 ## Make a webpage for your repository
 
