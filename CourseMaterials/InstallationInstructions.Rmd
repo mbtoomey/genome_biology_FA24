@@ -38,7 +38,7 @@ The nice thing about Macs is that they are UNIX-based and so all of the commands
 
 ## File transfer
 
-We will submit command to the OSCER through the terminal, but we will also need to load data and script files. There are [several options](https://www.ou.edu/oscer/support/file_transfer) to do this, I will use and suggest WInScp (for windows) and FileZilla (on Mac). Please select one and install it ahead of class.  
+We will submit command to the OSCER through the terminal, but we will also need to load data and script files. There are [several options](https://www.ou.edu/oscer/support/file_transfer) to do this, I will use and suggest WinScp (for windows) and FileZilla (on Mac). Please select one and install it ahead of class.  
 
 ## Text/Script editor
 
