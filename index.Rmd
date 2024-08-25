@@ -28,7 +28,7 @@ ___
 
 Date (week of)  | Lecture | Reading | Assignments
 ------------- |----------- | ------------- | ------------- 
-August 29  | [Class Introduction and Working with the OSCER](),[Linux/UNIX basics](Lessons/Shell_Navigation.html), [Git](Lessons/Lesson2.html), and [Markdown](Lessons/Lesson3.html) | - | Setup Github page and link a .md file
+August 29  | [Class Introduction and Working with the OSCER](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/OSCER.md),[Linux/UNIX basics](Lessons/Shell_Navigation.html), [Git](Lessons/Lesson2.html), and [Markdown](Lessons/Lesson3.html) | - | Setup Github page and link a .md file
 September 5  | Review of DNA, RNA, and the Central Dogma | Chapter 1 (Brown) | [Begin Genomics Adventure](https://github.com/mbtoomey/genomics_adventure)  
 September 12  | Sequencing Technology, Genome assembly, and alignment  | Chapter 4 (Brown) | [Genomics Adventure Chapter 2](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_2/task_1.md), [Class Project Proposal](Assignments/ProjectAssignment.html)  
 September 19  | Genome annotation and QC | Chapter 5 & 6 (Brown) | [Genomics Adventure Chapter 3](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_3/task_1.md)
