@@ -37,9 +37,9 @@ A more detailed reference is available at the [rmarkdown cookbook](https://bookd
 
 - images 
 ```
-![Penguin](Penguin.jpg)
+![Penguin](penguin.jpg)
 ```
-![Penguin](Penguin.jpg)
+![Penguin](penguin.jpg)
 
 
 ### Lists 
