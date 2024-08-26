@@ -1,211 +1,135 @@
-# Working with Rmarkdown
+# Working with Git and Github
 
-## Introduction
+In this lesson we will setup and use `git` to track changes and recover earlier states in a project. We will link our local git project to `github` to create a long-lasting and sharable record of the project. 
 
-Markdown is a valuable tool to organize code, comments, and output for communication and archiving. I encourage you to use this format to work through our lessons and take notes. 
+## Terminology
 
-Here we will walk through the basics of Markdown. A helpful quick references is available in Rstudio `Help > Markdown Quick Reference`:
+- `git` - a software system to track changes locally on your computer. Usually used to track text-based files like computer code.  
+- `github` - a free, public website where you can host git tracked projects.  
+- `repository` - (repo) - a collection of project files tracked together with `git`  
+- `commit` (noun) - a snapshot of the tracked project at a specific point in time
+- `commit` (verb) - the act of capturing a snapshot of your project with `git`
+- `push` - copying changes from local project up to `github`
+- `pull` - copying changes from `github` to your local project
 
-![](Help.PNG)
+## Setting up a new Github repository
 
-A more detailed reference is available at the [rmarkdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/).
+- Log into your [github](https://github.com/) account
+- Select the repositories tab and click the "new" button
+- Name the repository
+- fill in a short description
+- add a readme file
+- and select a license (I use MIT)
+- all other options, accept the defaults
+- create!
 
+## Start a linked project on your local computer
 
-### Basic text formatting
-- headers `#` to `######`
-    *numbering from options
-- text
-- markup
-    * italic `*<text>*`
-    * bold-face `**<text>**`
-    * subscript `~<text>~`
-    * superscript `^<text>^`
-    * strikethrough `~~<text>~~`
-    * quotations `><text with no closing mark`
-    
-### Spacing
-- Regular text is single spaced
-- double spacing sets a line break (or carriage return)
-    
-### Insert links and images   
-- links 
+- select "new project" from the file menu
+- select "version controlled"
+- select "git" 
+- you will be asked for the repository URL
+  - through your browser, go to the github repository you just created
+  - click the "clone" button
+  - copy the repository url and paste into Rstudio
+- If this is your first time linking to github through Rstudio, you will need to provide log in details for your github account (see [Installation Instructions](InstallationInstructions.html).
 
-```
-[Dr. Toomey's website](http://mbtoomey.net)
-```
-[Dr. Toomey's website](http://mbtoomey.net)
+## Update the readme for your repository
 
-```
-[My sbatch file](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/template.sbatch)
-````
-[My sbatch file](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/template.sbatch)
+- open the README.md file in Rstudio
+- Update with a title and brief description of your repository
+- Use this page to link to the .md files you create for our assignments
+- more details on formating for markdown are [here](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/Lesson3.md).
 
-- images 
-```
-![Penguin](penguin.jpg)
-```
-![Penguin](penguin.jpg)
+## Commit the changes to project and push to Github
+ 
+- click over to the terminal
+  - if you are on a windows PC set the options so that the terminal opens with git bash    
+- run the following commands
+- `git status`
+- `git add -A`
+- `git commit -am 'initial commit'` 
+- `git push`
 
+## Git workflow
 
-### Lists 
+All of these commands are implemented in the terminal
 
-#### unordered list
-```
-- Finches
-- Sparrows
-    - House sparrow
-    - Tree sparrow
-```    
-For second level list items "-" is preceeded by two spaces
+### Check the status of your project and make sure you are up-to-date with the remote repository
 
-- Finches
-- Sparrows
-    - House sparrow
-    - Tree sparrow
+- `git status`- provides details of the current project status
+- `git pull` - pulls down any changes from the github repository
+  -- Note that you can work on the same project on different computers, as long as you are careful to push and pull changes throught your github repository.
 
+## Do some work and commit it to the timeline
 
-#### Order lists  
-```    
-1. Finches
-2. Sparrows
-    - House sparrow
-    - Tree sparrow
-```    
-1. Finches
-2. Sparrows
-    - House sparrow
-    - Tree sparrow
-    
-# Fencing
-```
-Anything surrounded by backticks `will render as plain text` 
-```
-Anything surrounded by backticks `will render as plain text` 
-```{r eval=FALSE}
-R code inside ticks can be executed during rendering. For example, you can caluclate a value `r 3 + pi`. 
-```
-R code inside ticks can be executed during rendering. For example, you can caluclate a value `r 3 + pi`.
+- Do your actual work and make changes to files through Rstudio, text editors, or other specific software
+- `git status` - git will report that the files differ from the repository
+- `git add -A` - stage the changes 
+- `git commit -am 'informative comment'` 
+  - this will commit and log the changes you have made in git
+  - comments should:
+    - start with an active verb
+    - all lower case
+    - no punctuation
+- You can then add these changes to your Github repository 
+  - `git push`
+  
+## Reviewing the commits in your repro
 
-You can create a whole block of plain text by surrounding it with three backticks
+- `git log` - full list with details of each commit
+- `git log --oneline` - a concise list of the commits
+- `git log -2` - shows the last two commits
+  - you can vary the parameter to see more or less
+- `git log -1 -p HEAD` - see details of all the changes in the last commit
 
-```
-everything is plain text here.
-even single lines
+## Amending a commit
 
-Useful for show blocks of codes
-```
+For small changes 
 
-# Block quotes with `>`
+- make changes
+- stage the changes 
+- `git commit --amend -C Head` 
+  - This will amend the changes you have made to the last commit
+  
+Change the git message
 
-```
-> Whether I shall turn out to be the hero of my own life, or whether that station will be held by anybody else, these pages must show.
-```
+- `git commit --amend -m '<revised message>'`
+- revises message on last commit
 
-> Whether I shall turn out to be the hero of my own life, or whether that station will be held by anybody else, these pages must show.
+Delete a commit
 
-# Spacer line with three or more underscores
-```
-___   
-```
+- `git reset --hard HEAD^`
+	- ^ indicates a single step backward
+	- this will get rid of all changes in the last commit
+	- be careful, this can't be undone
+	
+Recover a file from an earlier commit
 
-___
-# Tables
+- first find it in your commits
+- `git log --oneline -- <file name>`
+	- only shows commits where your file was modified
+- `git checkout <hashcode of last commit where file was present> -- <file name>`
 
-```
-| Species  | Awesomeness
-| :------------- | :-------------
-| House Sparrow   | Medium|
-| Tree Sparrow  | High|
-```
+Branching  
 
-| Species  | Awesomeness
-| :------------- | :-------------
-| House Sparrow   | Medium|
-| Tree Sparrow  | High|
+- `git branch`  
+  - shows all branches and currently active branch  
+- `git branch <name of new branch>`
+  - adds a new branch  
+- `git checkout <name of new branch>`
+	- switches to the new branch
+- `git merge --log <name of branch to be merged into current>`
+	- first switch to branch you want to merge into
+	- merges working branch back into main with commit comments
+- `git branch -d <name>`
+	- deletes branches that have been merged to master
+- `git branch -D <name>` 
+	- deletes branches without merging
+	- good if you do not want to keep changes 
 
-The "-" separates the header from the rest of the column
-The ":" set the justification
-
-
-### Equations
-
-* in-line `$`
-* centered `$$`
-
-- basic math and text spacing handled by LateX. Note that this language is a bit different than the basic markdown (e.g. how sub and superscripts are handled)
-
-```
-$$y = a + b$$
-```
-
-$$y = a + b$$
-
-#### Subcripts
-
-```
-$$H_0 = Z_{a + b}$$
-```
-
-$$H_0 = Z_{a + b}$$
-
-#### Superscripts
-
-```
-$$S = cA^z$$
-
-```
-
-$$S = cA^z$$
+ 
 
 
-- elements can be coupled and nested
-
-$$S=cA^z_1 + z_{2 + x}$$
 
 
-```
-$$S=cA^z_1 + z_{2 + x}$$
-
-```
-
-#### Fractions and Greek Symbols
-
-$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
-```
-$$\alpha = \frac{\beta}{\delta + \gamma_x}$$
-
-```
-
-#### Summation signs
-
-$$z = \sum_{i=1}^X{K}$$
-
-```
-$$z = \sum_{i=1}^X{K}$$
-
-```
-
-#### What if you need a backslash in your equation? 
-
-Use `\backslash`
-
-```
-$$\backslash \alpha \le b \backslash$$
-
-```
-
-$$\backslash \alpha \le b \backslash$$
-
-#### Rendering plain text in a LaTex Equation
-
-$$P(Expression of gene) = Z$$
-```
-$$P(Expression of gene) = Z$$
-```
-
-$$P(\mbox{Expression of gene}) = Z$$
-
-```
-$$P(\mbox{Expression of gene}) = Z$$
-
-```
