@@ -35,6 +35,11 @@ A more detailed reference is available at the [rmarkdown cookbook](https://bookd
 ```
 [Dr. Toomey's website](http://mbtoomey.net)
 
+```
+[My sbatch file](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/template.sbatch)
+````
+[My sbatch file](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/template.sbatch)
+
 - images 
 ```
 ![Penguin](penguin.jpg)
