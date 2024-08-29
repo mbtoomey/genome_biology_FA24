@@ -1,4 +1,4 @@
-# Working with Rmarkdown
+# Working with Markdown
 
 ## Introduction
 
