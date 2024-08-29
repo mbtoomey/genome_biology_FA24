@@ -23,9 +23,9 @@ In this lesson we will setup and use `git` to track changes and recover earlier 
 - all other options, accept the defaults
 - create!
 
-## Start a linked project on your local computer
+## Start a linked project on your local computer with Rstudio
 
-- select "new project" from the file menu
+- Open Rstudio and select "new project" from the file menu
 - select "version controlled"
 - select "git" 
 - you will be asked for the repository URL

@@ -126,6 +126,10 @@ ___
 The "-" separates the header from the rest of the column
 The ":" set the justification
 
+### Emojis :partying_face:
+
+You can add :grinning: :boom: :man_farmer: to your markdown! You do this by typing the Unicode Common Locale Data Repository emoji name between ":" e.g. `:two_hearts:` :two_hearts:. A listing of the avialable emojis can be found [here](https://github.com/ikatyang/emoji-cheat-sheet?tab=readme-ov-file).
+
 
 ### Equations
 
