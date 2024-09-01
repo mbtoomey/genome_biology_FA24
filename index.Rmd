@@ -29,7 +29,7 @@ ___
 Date (week of)  | Lecture | Reading | Assignments
 ------------- |----------- | ------------- | ------------- 
 August 29  | - [Class Introduction and OSCER](https://github.com/mbtoomey/genome_biology_FA24/blob/main/CourseMaterials/OSCER.md)<br/> - [Linux/UNIX basics](Lessons/Shell_Navigation.html)<br/> - [Git](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/Lesson2.md)<br/> - [Markdown](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/Lesson3.md) | - | Setup Github project with a markdown document linking to .sbatch and .sh files
-September 5  | Review of DNA, RNA, and the Central Dogma | Chapter 1 (Brown) | [Begin Genomics Adventure](https://github.com/mbtoomey/genomics_adventure)  
+September 5  | [Genome and Sequencing Basics](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/Lecture1_Genome_and_Sequencing_Basics.pdf) | Chapter 1 (Brown) | [Begin Genomics Adventure](https://github.com/mbtoomey/genomics_adventure)  
 September 12  | Sequencing Technology, Genome assembly, and alignment  | Chapter 4 (Brown) | [Genomics Adventure Chapter 2](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_2/task_1.md), [Class Project Proposal](Assignments/ProjectAssignment.html)  
 September 19  | Genome annotation and QC | Chapter 5 & 6 (Brown) | [Genomics Adventure Chapter 3](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_3/task_1.md)
 September 26  | Eukaryotic Genome Structure and Organization | Chapter 7 (Brown) | [Genomics Adventure Chapter 4](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_4/task_1.md)
