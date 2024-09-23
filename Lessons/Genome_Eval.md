@@ -107,3 +107,9 @@ Here are the assembly graph files for pseudomonas genome assemblies you will con
 * [illumina assembly graph](https://drive.google.com/file/d/1RSAtTPTfF1nM0hos3u8elQrETdM0jNjF/view?usp=sharing)
 * [hybrid assembly graph](https://drive.google.com/file/d/1Uxw-jzetJhYPOH-xHHzJqKqMYKYs-wh6/view?usp=sharing)
 
+Let's try and find the [Universal Stress Protein](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/USP.fasta) in our assembly. 
+
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_6.png)
+
+
+
