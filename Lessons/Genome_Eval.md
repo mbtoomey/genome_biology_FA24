@@ -109,7 +109,41 @@ Here are the assembly graph files for pseudomonas genome assemblies you will con
 
 Let's try and find the [Universal Stress Protein](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/USP.fasta) in our assembly. 
 
-![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_6.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_7.png)
+
+## K-mer spectrum analysis
+
+K-mer spectrum analysis is a useful tool to: 
+* Assess quality of your sequencing library
+* Infer properties of the genome
+  * Size
+  * Ploidy 
+  * Heterozygosity
+  
+To do this we will use [Jellyfish](https://www.genome.umd.edu/jellyfish.html#Release) for K-mer counting and visualize the spectra with [Genomescope](http://genomescope.org/genomescope2.0/).
+
+Let's take a look at the immumina sequencing reads we used to construct the pseudomonas genome assembly in Chapter 5 of the Genomics Adventure.
+
+First we will count the k-mers and export a histogram file with Jellyfish
+
+```
+ml Jellyfish/2.3.0-GCCcore-7.3.0
+
+jellyfish count -C -m 31 -s 31000000000 -t 20 <(zcat /scratch/mbtoomey/BIOL7263_Genomics/pseudomonas_gm41/SRR491287_1.fastq.gz) <(zcat /scratch/mbtoomey/BIOL7263_Genomics/pseudomonas_gm41/SRR491287_2.fastq.gz) -o /scratch/mbtoomey/pseud_merqury/pseud.jf
+
+jellyfish histo -t 20 /scratch/mbtoomey/pseud_merqury/pseud.jf > /scratch/mbtoomey/pseud_merqury/pseud.jf.histo
+```
+Here I am doing a few things differently that usual. Since Jellyfish is installed on OSCER for all users we can activate it with the module load (ml) command. `-C` specified "canonical k-mers", `-m` sets the k-mer length, `-s` sets the amount of memory the program will use, and `-t` set the number of cores used. This is rather computationally intensive so I set it to use 20 cores. 
+
+The second command `histo` generates the file that we will upload to genomescope. 
+
+* [jellyfish.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/jellyfish.sh)
+* [jellyfish.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/jellyfish.sbatch)
+
+Let's upload the resulting [pseud.jf.histo](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/pseud.jf.histo) to Genomescope: 
+
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_8.png)
+
 
 
 
