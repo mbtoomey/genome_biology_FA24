@@ -89,3 +89,21 @@ Download the report folder and take a look at the report:
 ![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_5.png)
 
 ![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_6.png)
+
+## Visualize the assembly graph
+
+A graphical representation of your assembly can be helpful to: 
+
+* Understand the connections among your contigs
+* Diagnose problematic regions of the assembly
+* Visualize location of genes and other regions of interest
+
+[Bandage](https://rrwick.github.io/Bandage/) is a popular tool to visualize the assembly graph file and can be installed an run locally on your PC. 
+
+Bandage requires a graph file. This is a file produced by your assembler. For example, SPAdes produces `.fastg` graph files along with the contig fasta. 
+
+Here are the assembly graph files for pseudomonas genome assemblies you will construct in Chapter 5 of the Genomics Adventure. Let's download this and load them into Bandage to explore it's functions.
+
+* [illumina assembly graph](https://drive.google.com/file/d/1RSAtTPTfF1nM0hos3u8elQrETdM0jNjF/view?usp=sharing)
+* [hybrid assembly graph](https://drive.google.com/file/d/1Uxw-jzetJhYPOH-xHHzJqKqMYKYs-wh6/view?usp=sharing)
+
