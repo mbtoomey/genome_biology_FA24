@@ -2,11 +2,11 @@
 
 ## Assembly statitistics
 
-* *Genome size* - total # of bases in genome assembly
-* *Contig/scaffold numbers* - total number of assembled elements
+* **Genome size** - total # of bases in genome assembly
+* **Contig/scaffold numbers** - total number of assembled elements
 ideally = # of chromosomes
-* *N50* - 50% of nucleotides in genome are contained in contigs that are greater than or equal to this length
-* *L50* - minimum number of contigs needed to contain 50% of the genome
+* **N50** - 50% of nucleotides in genome are contained in contigs that are greater than or equal to this length
+* **L50** - minimum number of contigs needed to contain 50% of the genome
 
 ### Quast
 
@@ -49,9 +49,9 @@ L75                         43
 
 or download the report folder to your local PC and view the html report files:
 
-[](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_1.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_1.png)
 
-[](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_2.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_2.png)
 
 #### Assembly comparisons
 
@@ -68,9 +68,9 @@ quast.py --output-dir /scratch/mbtoomey/pseud_quast_short_long/ /home/mbtoomey/B
 
 Download the report folder and take a look at the report: 
 
-[](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_3.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_3.png)
 
-[](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_4.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_4.png)
 
 #### Reference comparison
 
@@ -86,6 +86,6 @@ quast.py --output-dir /scratch/mbtoomey/pseud_comp_quast/ /home/mbtoomey/BIOL726
 
 Download the report folder and take a look at the report: 
 
-[](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_5.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_5.png)
 
-[](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_6.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_6.png)
