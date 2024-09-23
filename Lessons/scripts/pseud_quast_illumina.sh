@@ -1,0 +1,1 @@
+quast.py --output-dir /scratch/mbtoomey/pseud_illumina_quast/ /home/mbtoomey/BIOL7263_Genomics/precomp_hybrid_assembly/illumina/contigs.fasta
