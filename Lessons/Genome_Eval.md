@@ -122,7 +122,7 @@ K-mer spectrum analysis is a useful tool to:
   
 To do this we will use [Jellyfish](https://www.genome.umd.edu/jellyfish.html#Release) for K-mer counting and visualize the spectra with [Genomescope](http://genomescope.org/genomescope2.0/).
 
-Let's take a look at the immumina sequencing reads we used to construct the pseudomonas genome assembly in Chapter 5 of the Genomics Adventure.
+Let's take a look at the illumina sequencing reads we used to construct the pseudomonas genome assembly in Chapter 5 of the Genomics Adventure.
 
 First we will count the k-mers and export a histogram file with Jellyfish
 
@@ -144,6 +144,47 @@ Let's upload the resulting [pseud.jf.histo](https://github.com/mbtoomey/genome_b
 
 ![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/genome_eval_8.png)
 
+## BUSCO Analysis to assess genome completeness
 
+Benchmarking Universal Single-Copy Orthologs, [BUSCO](https://busco.ezlab.org/) is an approach that searches your assembly for a curated set of protein coding genes that are nearly universally present in the genomes of a selected taxonomic divison. 
+
+Let's evaluate the pseudomonas genome we assembled: 
+
+```
+ml BUSCO/5.2.2-foss-2020b
+
+busco -i /home/mbtoomey/BIOL7263_Genomics/precomp_hybrid_assembly/hybrid/contigs.fasta -m genome --lineage_dataset pseudomonadales_odb10 -c 20 --out pseud_busco2
+```
+`-i` specifies the input file - a .fasta of you contigs. `-m` sets the mode we are using genome, but you can also run transcriptome or proteins. `-c` set the number of CPU cores that busco will use. `--out` specifies the folder where results will be output. :heavy_exclamation_mark: you cannot specify a path here. The output folder will be created wherever you run the busco commands from. Also busco will create a database folder wherever you are running the command from. 
+
+`--lineage_dataset` selects the taxonomic grouping that busco will search within. `busco --list-datasets` will output a list of all available lineages. If you are unsure what lineage to you you can instead specify `--auto-lineage` and busco will search your assembly and identify the most approporiate lineage, however this will loner than a specific search. 
+
+* [busco.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/busco.sh)
+* [jbusco.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/busco.sbatch)
+
+```
+# BUSCO version is: 5.2.2 
+# The lineage dataset is: pseudomonadales_odb10 (Creation date: 2024-01-08, number of genomes: 159, number of BUSCOs: 782)
+# Summarized benchmarking in BUSCO notation for file /scratch/mbtoomey/BIOL7263_Genomics/pseudomonas_gm41/assembly/hybrid/contigs.fasta
+# BUSCO was run in mode: genome
+# Gene predictor used: prodigal
+
+	***** Results: *****
+
+	C:99.8%[S:99.7%,D:0.1%],F:0.1%,M:0.1%,n:782	   
+	781	Complete BUSCOs (C)			   
+	780	Complete and single-copy BUSCOs (S)	   
+	1	Complete and duplicated BUSCOs (D)	   
+	1	Fragmented BUSCOs (F)			   
+	0	Missing BUSCOs (M)			   
+	782	Total BUSCO groups searched		   
+
+Dependencies and versions:
+	hmmsearch: 3.3
+	prodigal: 2.6.3
+	
+	```
+	
+	All in all, our assembly is pretty good! :clap:
 
 
