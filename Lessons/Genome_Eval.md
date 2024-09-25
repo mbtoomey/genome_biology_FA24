@@ -81,6 +81,9 @@ Here I have downloaded the [Genome assembly Pseudomonas.strGM41_v2.0](https://ww
 ```
 quast.py --output-dir /scratch/mbtoomey/pseud_comp_quast/ /home/mbtoomey/BIOL7263_Genomics/precomp_hybrid_assembly/illumina/contigs.fasta /home/mbtoomey/BIOL7263_Genomics/precomp_hybrid_assembly/hybrid/contigs.fasta -r /home/mbtoomey/BIOL7263_Genomics/precomp_hybrid_assembly/pseud_ref.fna.gz
 ```
+
+The `-r` option here specifies which file is the reference. 
+
 * [pseud_quast_comp.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/pseud_quast_short_long.sh)
 * [pseud_quast_comp.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/pseud_quast_short_long.sbatch)
 
@@ -160,7 +163,7 @@ busco -i /home/mbtoomey/BIOL7263_Genomics/precomp_hybrid_assembly/hybrid/contigs
 `--lineage_dataset` selects the taxonomic grouping that busco will search within. `busco --list-datasets` will output a list of all available lineages. If you are unsure what lineage to you you can instead specify `--auto-lineage` and busco will search your assembly and identify the most approporiate lineage, however this will loner than a specific search. 
 
 * [busco.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/busco.sh)
-* [jbusco.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/busco.sbatch)
+* [busco.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/busco.sbatch)
 
 ```
 # BUSCO version is: 5.2.2 
