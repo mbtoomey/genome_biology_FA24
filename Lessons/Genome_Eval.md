@@ -186,7 +186,7 @@ Dependencies and versions:
 	hmmsearch: 3.3
 	prodigal: 2.6.3
 	
-	```
+```
 	
 	All in all, our assembly is pretty good! :clap:
 
