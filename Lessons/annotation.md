@@ -15,7 +15,7 @@ All approaches involve some form of gene finding/prediction and homology searche
 
 ![Horned lark](https://www.allaboutbirds.org/guide/assets/photo/308604021-1280px.jpg)
 
-### gene finding
+### Gene finding
 
 To find genes in chromosome 24 we will use the package [Augustus](https://github.com/Gaius-Augustus/Augustus/tree/master) an ab initio program that bases its predictions on sequence data alone. Augustus relies on a [Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model) trained with RNA-seq, protein databases, an other data to calculate a probability that a particular sequence belongs to a gene. The creators offer trained models for many [common species](https://github.com/Gaius-Augustus/Augustus/blob/master/docs/ABOUT.md) and there are also options to [train your own model](https://bioinf.uni-greifswald.de/webaugustus/trainingtutorial). Here we will use the existing model for chicken. 
 
@@ -34,7 +34,7 @@ This process yields two files a [.gff](https://useast.ensembl.org/info/website/u
 * [augustus.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/augustus.sh)
 * [augustus.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/augustus.sbatch)
 
-### annotation by homology 
+### Annotation by homology 
 
 Now that we have putative protein coding genes in our genome we need to figure out what these might be. To do this we will compare them to known or annotated proteins in other bird species. We will use [Diamond](https://github.com/bbuchfink/diamond) to run efficient blast searches of databases. 
 
@@ -59,6 +59,11 @@ Now we have a database file called `bird_proteins.dmnd` that we can search with 
 ```
 diamond blastp --threads 20 --outfmt 6 -k 1 -d /scratch/mbtoomey/HoLa_example/bird_proteins.dmnd -q /scratch/mbtoomey/HoLa_example/HoLa_scaffold_123.aa -o HoLa_blastp.tsv
 ```
+
+* [diamond_blastp.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_blastp.sh)
+* [diamond_blastp.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_blastp.sbatch)
+
+I have set the following options for this analysis: 
 
 * `-d` sets the path to our database. 
 * `-k` limits the output to the top hit only. 
@@ -162,12 +167,8 @@ diamond blastp --threads 20 --outfmt 6 -k 1 -d /scratch/mbtoomey/HoLa_example/bi
     
     - `full_qqual`
     Query quality values
-    
 
-* [diamond_blastp.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_blastp.sh)
-* [diamond_blastp.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_blastp.sbatch)
-
-Now lets uses these blast hits to add features to genes found by augustus. Here we will edit the .gff file with [AGAT](https://agat.readthedocs.io/en/latest/index.html#) a convient tool for editing .gff files. There we some complicated dependencies so I set this up in a separate environment. You will need to activate it:
+Now let's use these blast hits to add features to genes found by augustus. Here we will edit the .gff file with [AGAT](https://agat.readthedocs.io/en/latest/index.html#) a convient tool for editing .gff files. There we some complicated dependencies so I set this up in a separate environment. You will need to activate it:
 ```
 mamba activate /home/mbtoomey/.conda/envs/agat
 ```
@@ -183,7 +184,7 @@ This script takes our blastp output then searches the original protein database 
 
 Now let's download our annotated GFF and genome file and fire up IGV. How did we do? Here is my favorite gene BCO2! :tada:
 
-![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/annotation_image1.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/annotation_image2.png)
 
 
 
