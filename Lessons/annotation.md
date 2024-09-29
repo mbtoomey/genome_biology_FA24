@@ -17,22 +17,41 @@ All approaches involve some form of gene finding/prediction and homology searche
 
 ### Gene finding
 
+For this exercise let's set up a folder on your scratch 
+
+```
+cd /scratch/[your id]
+
+mkdir HoLa_annotation
+
+cd HoLa_annotation
+```
+
+Now let's link to the genome assembly and protein database stored in my home directory. To do this you will create a [symbolic link](https://servicenow.iu.edu/kb?id=kb_article_view&sysparm_article=KB0023928)
+
+```
+ ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/HoLa_scaffold_123.fasta HoLa_scaffold_123.fasta
+ 
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/bird_proteins.fasta bird_proteins.fasta
+```
+Now I recommend running everthing from within the HoLA_example folder. This will allow us to keep the paths simple.
+
 To find genes in chromosome 24 we will use the package [Augustus](https://github.com/Gaius-Augustus/Augustus/tree/master) an ab initio program that bases its predictions on sequence data alone. Augustus relies on a [Hidden Markov model](https://en.wikipedia.org/wiki/Hidden_Markov_model) trained with RNA-seq, protein databases, an other data to calculate a probability that a particular sequence belongs to a gene. The creators offer trained models for many [common species](https://github.com/Gaius-Augustus/Augustus/blob/master/docs/ABOUT.md) and there are also options to [train your own model](https://bioinf.uni-greifswald.de/webaugustus/trainingtutorial). Here we will use the existing model for chicken. 
 
 ```
 ml AUGUSTUS/3.4.0-foss-2020b
 
-augustus --species=chicken --protein=on /home/mbtoomey/BIOL7263_Genomics/Example_data/HoLa_scaffold_123.fasta > /scratch/mbtoomey/HoLa_example/HoLa_scaffold_123.gff
+augustus --species=chicken --protein=on HoLa_scaffold_123.fasta > HoLa_scaffold_123.gff
 
-getAnnoFasta.pl /scratch/mbtoomey/HoLa_example/HoLa_scaffold_123.gff
+getAnnoFasta.pl HoLa_scaffold_123.gff
 ```
 
 The first command runs the gene finding with the chicken model and I have selected `--protein=on` so that augustus will out put predicted AA sequences. The `getAnnoFasta.pl` script writes these AA sequences to a new file that we will use next for homology search. 
 
 This process yields two files a [.gff](https://useast.ensembl.org/info/website/upload/gff.html) that maps the predicted genes to the genome and a `.aa` file that contains the AA sequences of the predicted genes. 
 
-* [augustus.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/augustus.sh)
-* [augustus.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/augustus.sbatch)
+* [HoLa_augustus.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/HoLa_augustus.sh)
+* [HoLa_augustus.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/HoLa_augustus.sbatch)
 
 ### Annotation by homology 
 
@@ -47,9 +66,9 @@ I then simply unzipped these files and concatenated them into a single fasta:
 ```
 cat ZeFi_proteins.fasta chicken_proteins.fasts > bird_proteins.fasta
 ```
-Now we can convert out fast file of proteins into a blast database with diamond: 
+You will access this file through the symbolic link we setup above. Now we can convert our fasta file of proteins into a blast database with diamond: 
 ```
-diamond makedb --in /scratch/mbtoomey/HoLa_example/bird_proteins.fasta -d bird_proteins
+diamond makedb --in bird_proteins.fasta -d bird_proteins
 ```
 * [diamond_mkdb.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_mkdb.sh)
 * [diamond_mkdb.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_mkdb.sbatch)
@@ -57,7 +76,7 @@ diamond makedb --in /scratch/mbtoomey/HoLa_example/bird_proteins.fasta -d bird_p
 Now we have a database file called `bird_proteins.dmnd` that we can search with our protein predictions from augustus. Let's do it!
 
 ```
-diamond blastp --threads 20 --outfmt 6 -k 1 -d /scratch/mbtoomey/HoLa_example/bird_proteins.dmnd -q /scratch/mbtoomey/HoLa_example/HoLa_scaffold_123.aa -o HoLa_blastp.tsv
+diamond blastp --threads 8 --outfmt 6 -k 1 -d bird_proteins.dmnd -q HoLa_scaffold_123.aa -o HoLa_blastp.tsv
 ```
 
 * [diamond_blastp.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_blastp.sh)
@@ -182,9 +201,14 @@ This script takes our blastp output then searches the original protein database 
 * [agat.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/agat.sh)
 * [agat.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/agat.sbatch)
 
-Now let's download our annotated GFF and genome file and fire up IGV. How did we do? Here is my favorite gene BCO2! :tada:
+Now let's download our annotated GFF and genome file and fire up IGV. To get the genome file you will need now need to copy the file to your sc
+
+How did we do? Here is my favorite gene BCO2! :tada:
 
 ![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/annotation_image2.png)
+
+## Transcriptome annotation
+
 
 
 
