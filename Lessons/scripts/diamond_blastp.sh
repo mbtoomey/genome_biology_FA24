@@ -1,0 +1,1 @@
+diamond blastp --threads 20 --outfmt 6 -k 1 -d /scratch/mbtoomey/HoLa_example/bird_proteins.dmnd -q /scratch/mbtoomey/HoLa_example/HoLa_scaffold_123.aa -o HoLa_blastp.tsv

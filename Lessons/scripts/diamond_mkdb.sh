@@ -1,0 +1,1 @@
+diamond makedb --in /scratch/mbtoomey/HoLa_example/bird_proteins.fasta -d bird_proteins
