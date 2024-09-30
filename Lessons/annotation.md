@@ -269,7 +269,7 @@ NODE_304994_length_197_cov_4.032258_g297394_i0	CABLES2|tr|H0Y5H2|H0Y5H2_HUMAN Cd
 NODE_304996_length_197_cov_4.032258_g297396_i0	-|Q6ZNN6_HUMAN cDNA FLJ27422 fis, clone WMC08087
 ```
 
-for the sake of transparency I didn't code this awk command myself, but rather submited [this query ](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/query.txt) to [copilot](copilot.microsoft.com) and then iterated until I got what I wanted. 
+for the sake of transparency I didn't code this awk command myself, but rather submited [this query ](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/query.txt) to [copilot](copilot.microsoft.com) and then iterated until I got what I wanted. 
 
 Now that we have the header file we can merge this with our transcriptome using the replace function in [seqkit](https://bioinf.shenwei.me/seqkit/) a package with many useful functions to edit fasta files. 
 
