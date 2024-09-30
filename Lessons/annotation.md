@@ -282,9 +282,22 @@ seqkit replace -p "(.+)" -r '$1|{kv}' -k HEK_headers.txt transcripts.fasta > tra
 - `-k HEK_headers.txt` This specifies the key-value file. The file HEK_headers.txt should contain pairs of original headers and their replacements.
 - `transcripts.fasta` This is the input FASTA file whose headers you want to replace.
 
-The result is a fasta with the matching gene details added to the headers: 
+The result is a fasta with the matching gene details added. Let's compare the original transcriptome fasta to the new annotated one:
 
 ```
+grep '^>' transcripts.fasta | tail
+
+>NODE_304997_length_197_cov_4.024194_g297397_i0
+>NODE_304998_length_197_cov_4.016129_g297398_i0
+>NODE_304999_length_197_cov_4.016129_g297399_i0
+>NODE_305000_length_197_cov_4.008065_g297400_i0
+>NODE_305001_length_197_cov_4.008065_g297401_i0
+>NODE_305002_length_197_cov_4.008065_g297402_i0
+>NODE_305003_length_197_cov_4.008065_g297403_i0
+>NODE_305004_length_197_cov_4.008065_g297404_i0
+>NODE_305005_length_197_cov_2.451613_g297405_i0
+>NODE_305006_length_166_cov_2643.644351_g297406_i0
+
 grep '^>' transcripts_annotated.fasta | tail
 
 >NODE_304997_length_197_cov_4.024194_g297397_i0|
@@ -300,5 +313,5 @@ grep '^>' transcripts_annotated.fasta | tail
 ```
 Here I used [grep](https://www.gnu.org/software/grep/manual/grep.html) to return just the headers from the file then piped `|` these to `tail` to look at the last few entries. 
 
-Note that many of the assembled transcripts had no hits in our protein database. This is not suprizing, because the transcriptome contains many RNAs not represented in this dataset (i.e. non-coding RNAs)
+Note that many of the assembled transcripts had no hits in our protein database. This is not surprising, because the transcriptome contains many RNAs not represented in this dataset (i.e. non-coding RNAs)
 
