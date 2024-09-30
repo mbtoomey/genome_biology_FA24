@@ -1,0 +1,12 @@
+Write me a awk command to parse 
+
+
+NODE_304989_length_197_cov_4.048387_g297389_i0  tr|E9PJ07|E9PJ07_HUMAN  21      100     2.52e-09        tr|E9PJ07|E9PJ07_HUMAN Erythroid differentiation regulatory factor 1 OS=Homo sapiens OX=9606 GN=EDRF1 PE=1 SV=1
+NODE_304994_length_197_cov_4.032258_g297394_i0  tr|H0Y5H2|H0Y5H2_HUMAN  55      98.2    2.73e-28        tr|H0Y5H2|H0Y5H2_HUMAN Cdk5 and Abl enzyme substrate 2 (Fragment) OS=Homo sapiens OX=9606 GN=CABLES2 PE=1 SV=1
+NODE_304996_length_197_cov_4.032258_g297396_i0	tr|Q6ZNN6|Q6ZNN6_HUMAN	26	65.4	9.86e-05	tr|Q6ZNN6|Q6ZNN6_HUMAN cDNA FLJ27422 fis, clone WMC08087 OS=Homo sapiens OX=9606 PE=2 SV=1
+
+into
+
+NODE_304989_length_197_cov_4.048387_g297389_i0	EDRF1|tr|E9PJ07|E9PJ07_HUMAN Erythroid differentiation regulatory factor 1
+NODE_304994_length_197_cov_4.032258_g297394_i0	CABLES2|tr|H0Y5H2|H0Y5H2_HUMAN Cdk5 and Abl enzyme substrate 2 (Fragment)
+NODE_304996_length_197_cov_4.032258_g297396_i0	-|Q6ZNN6_HUMAN cDNA FLJ27422 fis, clone WMC08087

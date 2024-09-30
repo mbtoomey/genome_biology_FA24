@@ -64,7 +64,7 @@ We are going to build our own database for this search. To do this lets go to th
 I then simply unzipped these files and concatenated them into a single fasta:
 
 ```
-cat ZeFi_proteins.fasta chicken_proteins.fasts > bird_proteins.fasta
+cat ZeFi_proteins.fasta chicken_proteins.fasta > bird_proteins.fasta
 ```
 You will access this file through the symbolic link we setup above. Now we can convert our fasta file of proteins into a blast database with diamond: 
 ```
@@ -209,7 +209,96 @@ How did we do? Here is my favorite gene BCO2! :tada:
 
 ## Transcriptome annotation
 
+We can use a similar approach to annotate **de novo** assembled transcriptomes produced from RNA sequencing data. For this example, I used Illumina PE150 reads from an RNA-seq project investigating gene expression in [HEK293 cells](https://en.wikipedia.org/wiki/HEK_293_cells). First I trimmed the reads and then assembled with [SPAdes in rna mode](https://ablab.github.io/spades/rna.html): 
 
+```
+spades.py --rna -t 20 -m 60 -o spades_assembly -1 trimmed_reads_val_1.fq.gz -2 trimmed_reads_val_2.fq.gz
+```
+This assembly required about 2 hrs, so we will not run it here, Rather you can access the finished assembly by setting a symbolic link to the file in my home directory. 
 
+First lets make a folder for this exercise:
+```
+cd /scratch/[your id]
 
+mkdir HEK_annotation
+
+cd HEK_annotation
+```
+
+As above, I recommend running all of the scripts from this folder. Now let's make the links to the assembly and the human protein reference database:
+
+```
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/transcripts.fasta transcripts.fasta
+ 
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/human_proteins.faa human_proteins.fasta
+```
+
+Similar to above, I download the human proteins from [Uniprotkb](https://www.uniprot.org/help/uniprotkb). Now we need to transform this file into a database that diamond can use for our blast search: 
+
+```
+diamond makedb --in human_proteins.fasta -d human_proteins
+```
+
+* [diamond_mkdb_HEK.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_mkdb_HEK.sh)
+* [diamond_mkdb_HEK.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_mkdb_HEK.sbatch)
+
+Now we can run the blast search, however this time we will be searching RNA transcripts against a protein database. Therefore, we will use the `blastx` search option in diamond. 
+
+```
+diamond blastx --threads 8 --outfmt 6 qseqid sseqid length pident evalue stitle -k 1 -d human_proteins.dmnd -q transcripts.fasta -o HEK_blastx.tsv
+```
+
+* [diamond_blastx.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_blastx.sh)
+* [diamond_blastx.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/diamond_blastx.sbatch)
+
+Now we have our blast results in tabular form `HEK_blast.tsv`. Let's merge these with out transcriptome assembly and add annotation to the tranacript headers. To do this lets first strip out the information we are interested in with an [awk](https://en.wikipedia.org/wiki/AWK) command. 
+
+```
+awk '{split($0, a, " "); split(a[2], b, "|"); gene = ($0 ~ /GN=/) ? gensub(/.*GN=([^ ]+).*/, "\\1", "g") : "-"; desc_start = index($0, a[7]); desc_end = match(substr($0, desc_start), / OS=/); print a[1] "\t" gene "|" a[2] " " substr($0, desc_start, desc_end - 1)}' HEK_blastx.tsv > HEK_headers.txt
+```
+This will take the blast output:
+```
+NODE_304989_length_197_cov_4.048387_g297389_i0  tr|E9PJ07|E9PJ07_HUMAN  21      100     2.52e-09        tr|E9PJ07|E9PJ07_HUMAN Erythroid differentiation regulatory factor 1 OS=Homo sapiens OX=9606 GN=EDRF1 PE=1 SV=1
+NODE_304994_length_197_cov_4.032258_g297394_i0  tr|H0Y5H2|H0Y5H2_HUMAN  55      98.2    2.73e-28        tr|H0Y5H2|H0Y5H2_HUMAN Cdk5 and Abl enzyme substrate 2 (Fragment) OS=Homo sapiens OX=9606 GN=CABLES2 PE=1 SV=1
+NODE_304996_length_197_cov_4.032258_g297396_i0	tr|Q6ZNN6|Q6ZNN6_HUMAN	26	65.4	9.86e-05	tr|Q6ZNN6|Q6ZNN6_HUMAN cDNA FLJ27422 fis, clone WMC08087 OS=Homo sapiens OX=9606 PE=2 SV=1
+```
+and parse it to this: 
+```
+NODE_304989_length_197_cov_4.048387_g297389_i0	EDRF1|tr|E9PJ07|E9PJ07_HUMAN Erythroid differentiation regulatory factor 1
+NODE_304994_length_197_cov_4.032258_g297394_i0	CABLES2|tr|H0Y5H2|H0Y5H2_HUMAN Cdk5 and Abl enzyme substrate 2 (Fragment)
+NODE_304996_length_197_cov_4.032258_g297396_i0	-|Q6ZNN6_HUMAN cDNA FLJ27422 fis, clone WMC08087
+```
+
+for the sake of transparency I didn't code this awk command myself, but rather submited [this query ](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/query.txt) to [copilot](copilot.microsoft.com) and then iterated until I got what I wanted. 
+
+Now that we have the header file we can merge this with our transcriptome using the replace function in [seqkit](https://bioinf.shenwei.me/seqkit/) a package with many useful functions to edit fasta files. 
+
+```
+seqkit replace -p "(.+)" -r '$1|{kv}' -k HEK_headers.txt transcripts.fasta > transcripts_annotated.fasta
+```
+
+- `-p "(.+)"` This is the pattern to match the entire header. (.+) captures the entire header as a group.
+- `-r '$1|{kv}'` This is the replacement pattern. $1 refers to the entire matched header (captured by (.+)), and {kv} is a placeholder that will be replaced by the corresponding value from the key-value file.
+- `-k HEK_headers.txt` This specifies the key-value file. The file HEK_headers.txt should contain pairs of original headers and their replacements.
+- `transcripts.fasta` This is the input FASTA file whose headers you want to replace.
+
+The result is a fasta with the matching gene details added to the headers: 
+
+```
+grep '^>' transcripts_annotated.fasta | tail
+
+>NODE_304997_length_197_cov_4.024194_g297397_i0|
+>NODE_304998_length_197_cov_4.016129_g297398_i0|ZNF568|tr|K7EKY2|K7EKY2_HUMAN Zinc finger protein 568
+>NODE_304999_length_197_cov_4.016129_g297399_i0|COA8|tr|A0A0U1RR29|A0A0U1RR29_HUMAN Cytochrome c oxidase assembly factor 8 (Fragment)
+>NODE_305000_length_197_cov_4.008065_g297400_i0|
+>NODE_305001_length_197_cov_4.008065_g297401_i0|
+>NODE_305002_length_197_cov_4.008065_g297402_i0|-|tr|Q7KZ41|Q7KZ41_HUMAN RNA-directed DNA polymerase (Fragment)
+>NODE_305003_length_197_cov_4.008065_g297403_i0|TNNI2|sp|P48788|TNNI2_HUMAN Troponin I, fast skeletal muscle
+>NODE_305004_length_197_cov_4.008065_g297404_i0|-|tr|Q6ZVR1|Q6ZVR1_HUMAN cDNA FLJ42200 fis, clone THYMU2034647
+>NODE_305005_length_197_cov_2.451613_g297405_i0|
+>NODE_305006_length_166_cov_2643.644351_g297406_i0|YWHAE/FAM22A|tr|G9K388|G9K388_HUMAN 14-3-3 protein epsilon (Fragment)
+```
+Here I used [grep](https://www.gnu.org/software/grep/manual/grep.html) to return just the headers from the file then piped `|` these to `tail` to look at the last few entries. 
+
+Note that many of the assembled transcripts had no hits in our protein database. This is not suprizing, because the transcriptome contains many RNAs not represented in this dataset (i.e. non-coding RNAs)
 
