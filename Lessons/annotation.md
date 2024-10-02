@@ -13,7 +13,7 @@ The current state of the art for eukaryotic genome annotation include [GNOMON](h
 
 ### BREAKER 
 
-![BREAKER](https://www.researchgate.net/publication/348298222/figure/fig1/AS:990789526110208@1613234039295/Flowchart-of-the-BRAKER2-pipeline-Input-intermediate-and-output-data-are-shown-by.png)
+![BREAKER](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/BREAKER.png)
 
 These are complex multi-component pipelines involving dozens of separate software packages and integrating diverse data sources. These pipelines are beyond the scope of our workshop. However, we can implement key elements of these pipelines. 
 
