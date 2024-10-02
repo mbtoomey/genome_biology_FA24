@@ -7,7 +7,13 @@ Genomes and transcriptomes are of little use for biological inferences if we do 
 
 The current state of the art for eukaryotic genome annotation include [GNOMON](https://www.ncbi.nlm.nih.gov/refseq/annotation_euk/gnomon/) a proprietary analysis pipeline run by the NCBI and [Breaker](https://github.com/Gaius-Augustus/BRAKER) from the University of Greifswald. 
 
+### GNOMON
+
 ![GNOMON](https://www.ncbi.nlm.nih.gov/core/assets/genome/images/Pipeline_sm_ncRNA_CAGE_80pct.png)
+
+### BREAKER 
+
+![BREAKER](https://www.researchgate.net/publication/348298222/figure/fig1/AS:990789526110208@1613234039295/Flowchart-of-the-BRAKER2-pipeline-Input-intermediate-and-output-data-are-shown-by.png)
 
 These are complex multi-component pipelines involving dozens of separate software packages and integrating diverse data sources. These pipelines are beyond the scope of our workshop. However, we can implement key elements of these pipelines. 
 
