@@ -15,7 +15,7 @@ All approaches involve some form of gene finding/prediction and homology searche
 
 ![Horned lark](https://www.allaboutbirds.org/guide/assets/photo/308604021-1280px.jpg)
 
-### Gene finding
+## Gene finding
 
 For this exercise let's set up a folder on your scratch 
 
@@ -53,7 +53,7 @@ This process yields two files a [.gff](https://useast.ensembl.org/info/website/u
 * [HoLa_augustus.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/HoLa_augustus.sh)
 * [HoLa_augustus.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/HoLa_augustus.sbatch)
 
-### Annotation by homology 
+## Annotation by homology 
 
 Now that we have putative protein coding genes in our genome we need to figure out what these might be. To do this we will compare them to known or annotated proteins in other bird species. We will use [Diamond](https://github.com/bbuchfink/diamond) to run efficient blast searches of databases. 
 
@@ -89,103 +89,7 @@ I have set the following options for this analysis:
 * `-q` sets the path to our query sequences from the genome
 * `-o` sets the name of the output file
 * `--threads` sets the number of cpu cores to use for the anlysis. Remember to match this in the .sbatch file. 
-* `--outfmt 6` sets the output to a table. By default, there are 12 fields included: qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore. However this can be customized by specifying: 
-
-     - `qseqid`
-    Query Seq - id
-    
-    - `qlen`
-    Query sequence length
-    
-    - `sseqid`
-    Subject Seq - id
-    
-    - `sallseqid`
-    All subject Seq - id(s), separated by a ’;’
-    
-    - `slen`
-    Subject sequence length
-    
-    - `qstart`
-    Start of alignment in query*
-    
-    - `qend`
-    End of alignment in query*
-    
-    - `sstart`
-    Start of alignment in subject*
-    
-    - `send`
-    End of alignment in subject*
-    
-    - `qseq`
-    Aligned part of query sequence*
-    
-    - `qseq_translated`
-    Aligned part of query sequence (translated)* *Supported since v2.0.7.*
-    
-    - `full_qseq`
-    Full query sequence
-    
-    - `full_qseq_mate`
-    Query sequence of the mate (requires two files for `--query`) *Supported     since v2.0.7.*
-    
-    - `sseq`
-    Aligned part of subject sequence*
-    
-    - `full_sseq`
-    Full subject sequence
-    
-    - `evalue`
-    Expect value
-    
-    - `bitscore`
-    Bit score
-    
-    - `score`
-    Raw score
-    
-    - `length`
-    Alignment length*
-    
-    - `pident`
-    Percentage of identical matches*
-    
-    - `nident`
-    Number of identical matches*
-    
-    - `mismatch`
-    Number of mismatches*
-    
-    - `positive`
-    Number of positive - scoring matches*
-    
-    - `gapopen`
-    Number of gap openings*
-    
-    - `gaps`
-    Total number of gaps*
-    
-    - `ppos`
-    Percentage of positive - scoring matches*
-    
-    - `qframe`
-    Query frame
-    
-    - `stitle`
-    Subject Title
-    
-    - `salltitles`
-    All Subject Title(s), separated by a ’\<\>’
-
-    - `qtitle`
-    Query title
-    
-    - `qqual`
-    Query quality values for the aligned part of the query*
-    
-    - `full_qqual`
-    Query quality values
+* `--outfmt 6` sets the output to a table. 
 
 Now let's use these blast hits to add features to genes found by augustus. Here we will edit the .gff file with [AGAT](https://agat.readthedocs.io/en/latest/index.html#) a convient tool for editing .gff files. There we some complicated dependencies so I set this up in a separate environment. You will need to activate it:
 ```
@@ -565,7 +469,7 @@ Now download `CYP2J19.fasta`, `CYP2J19.fasta.fai`, `HEK_CYP2J19_blast_sort.bam`,
 
 ![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/Annotation_1.png)
 
-Now we can see where the reads are mapping within this particular transcript and pick out SNPs. You might notice that is redundant with the mapping approaches we have discussed elsewhere. However, magicblast may perform better with error prone sequencing (i.e. nanopore reads) and may offer imporved intron detection [(Boratyn et al. 2019)](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-019-2996-x).
+Now we can see where the reads are mapping within this particular transcript and pick out SNPs. You might notice that is redundant with the mapping approaches we have discussed elsewhere. However, magicblast may perform better with error prone sequencing (i.e. nanopore reads) and may offer improved intron detection [(Boratyn et al. 2019)](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-019-2996-x).
 
 
 
