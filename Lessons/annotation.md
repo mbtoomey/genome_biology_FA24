@@ -315,3 +315,259 @@ Here I used [grep](https://www.gnu.org/software/grep/manual/grep.html) to return
 
 Note that many of the assembled transcripts had no hits in our protein database. This is not surprising, because the transcriptome contains many RNAs not represented in this dataset (i.e. non-coding RNAs)
 
+## BLAST
+
+Diamond only allows for searches of a protein database. To search a nucleotide database we can use the [blast+](https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html) suite of tools. This is the exact same tool that is used for [online blast searches](https://blast.ncbi.nlm.nih.gov/Blast.cgi). However, we we implement it on our system we will need to provide a search database. The blast+ suit includes a script to download the preconfigured databases from NCBI: 
+
+```
+update_blastdb.pl --decompress [DATABASE NAME]
+```
+You can find details about how to use the script [here](https://www.ncbi.nlm.nih.gov/books/NBK569850/)
+
+To check the databases that are available you can run: 
+```
+update_blastdb.pl --showall
+
+18S_fungal_sequences
+Betacoronavirus
+28S_fungal_sequences
+ITS_RefSeq_Fungi
+16S_ribosomal_RNA
+ITS_eukaryote_sequences
+LSU_eukaryote_rRNA
+LSU_prokaryote_rRNA
+SSU_eukaryote_rRNA
+env_nt
+env_nr
+human_genome
+landmark
+mito
+mouse_genome
+nr
+nt_euk
+nt
+nt_others
+nt_prok
+nt_viruses
+pataa
+patnt
+pdbaa
+pdbnt
+ref_euk_rep_genomes
+ref_prok_rep_genomes
+ref_viroids_rep_genomes
+ref_viruses_rep_genomes
+refseq_select_rna
+refseq_select_prot
+refseq_protein
+refseq_rna
+swissprot
+tsa_nr
+tsa_nt
+taxdb
+core_nt
+```
+
+`core_nt` is the default database used in online blast and is >160 Gb compressed, so it is not practical to download the entire database. However, `nt_viruses` and `nt_prok` (prokaryote) databases are subsets that more reasonable in size and may be worth a try. Unfortunately, the eukaryotic database (`nt_euk`) is still impractically large for our purposes, so we will use a different approach to make our database for this example. 
+
+To create a database of RNA sequences to search, I downloaded all of the RNAs from the NCBI human refernce genome - [GCF_000001405.40_GRCh38.p14_rna.fna.gz](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_rna.fna.gz). The I converted this to database:
+
+```
+makeblastdb -in human_RNA.fna -parse_seqids -blastdb_version 5 -title "Human RNA" -dbtype nucl -out human_rna_db
+```
+
+You can access with database in my account at ```/home/mbtoomey/BIOL7263_Genomics/Example_data/blastdb/human_rna_db```
+
+Now we can run a nucleotide to nucleotide `blastn` search of our **de novo** transcriptome.
+```
+blastn -db /home/mbtoomey/BIOL7263_Genomics/Example_data/blastdb/human_rna_db -query transcripts.fasta -outfmt "6 qseqid sseqid stitle" -num_threads 20 -num_alignments 1 > TTC_rna_blast.tsv
+```
+The options here are a bit different than the diamond search:
+- `-db` points toward our blast database (search target)
+- `-query` is our assembly
+- `num_threads` sets the number of CPU cores
+- `num_aligments` sets the number of blast hits to return for each quary
+- `outfmt` Here we have set it to tablular "6" and sepcified the specific elements that we want in the table. By default, there are 12 fields included: qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore. However this can be customized by specifying: 
+
+     - `qseqid`
+    Query Seq - id
+    
+    - `qlen`
+    Query sequence length
+    
+    - `sseqid`
+    Subject Seq - id
+    
+    - `sallseqid`
+    All subject Seq - id(s), separated by a ’;’
+    
+    - `slen`
+    Subject sequence length
+    
+    - `qstart`
+    Start of alignment in query*
+    
+    - `qend`
+    End of alignment in query*
+    
+    - `sstart`
+    Start of alignment in subject*
+    
+    - `send`
+    End of alignment in subject*
+    
+    - `qseq`
+    Aligned part of query sequence*
+    
+    - `qseq_translated`
+    Aligned part of query sequence (translated)* *Supported since v2.0.7.*
+    
+    - `full_qseq`
+    Full query sequence
+    
+    - `full_qseq_mate`
+    Query sequence of the mate (requires two files for `--query`) *Supported     since v2.0.7.*
+    
+    - `sseq`
+    Aligned part of subject sequence*
+    
+    - `full_sseq`
+    Full subject sequence
+    
+    - `evalue`
+    Expect value
+    
+    - `bitscore`
+    Bit score
+    
+    - `score`
+    Raw score
+    
+    - `length`
+    Alignment length*
+    
+    - `pident`
+    Percentage of identical matches*
+    
+    - `nident`
+    Number of identical matches*
+    
+    - `mismatch`
+    Number of mismatches*
+    
+    - `positive`
+    Number of positive - scoring matches*
+    
+    - `gapopen`
+    Number of gap openings*
+    
+    - `gaps`
+    Total number of gaps*
+    
+    - `ppos`
+    Percentage of positive - scoring matches*
+    
+    - `qframe`
+    Query frame
+    
+    - `stitle`
+    Subject Title
+    
+    - `salltitles`
+    All Subject Title(s), separated by a ’\<\>’
+
+    - `qtitle`
+    Query title
+    
+    - `qqual`
+    Query quality values for the aligned part of the query*
+    
+    - `full_qqual`
+    Query quality values
+    
+Here are my .sh an .sbatch to run the blast search
+
+* [blastn.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/blastn.sh)
+* [blastn.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/blastn.sbatch)
+
+Now download and compare the results of the diamond protein search `HEK_blastx.tsv` to the blastn nucleotide search `HEK_blastn.tsv`. You will notice they are similar, but not identical. The blastn search identified more of the **de novo** transcripts as you might expect since this database contains non-coding RNAs and non-coding protions of the transcript sequences. Thus, a nucleotide-based search my be better, but keep in mind that nucleotide sequences are mush less conserved than protein sequences. If you are comparing to a database from a distantly releated taxa, the blastx protein search may be more reliable. 
+
+### Side quest - blasting raw reads
+
+A situation may arise where you would like to search your raw sequencing reads for a specific gene or sequence. Basic BLAST is not well suited to this task. However, there is an alternative version called [Magic-BLAST](https://ncbi.github.io/magicblast/) that is designed to query a database with sequencing reads. 
+
+Let's work through an example with the HEK cell experiment raw reads. In this experiment I expressed several carotenoid metabolizing genes and was interested in if and how the exprerssion of these heterologous genes affected gene expression in the cells. One of those genes was [CYP2J19](), let's see if we can find this transcript in the raw reads.  You can access the CYP2J19 sequence and the raw reads from my directory. Now set up a folder for this example and create symbolic links to the files in my account. Note, to speed things up I subsampled the raw reads with seqtk as we did in [Cahpter 2](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_2/task_3.md) of the genomics adventure. 
+
+```
+cd /scratch/[your id]/
+
+mkdir raw_read_blast
+
+cd raw_read_blast
+
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/CYP2J19.fasta CYP2J19.fasta
+
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/subsample_1.fq subsample_1.fq
+
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/subsample_2.fq subsample_2.fq
+```
+
+First we will need to transform the `CYP2J19.fasta` into a searchable database. As we did above, we will use the `makeblastdb` function. I installed magicblast to a separate environment, so you will first need to activate the `magicbalst` environment with mamba and then you can proceed. 
+
+```
+mamba activate /home/mbtoomey/.conda/envs/magicblast
+
+makeblastdb -in CYP2J19.fasta -dbtype nucl -parse_seqids -out CYP2J19 -title "CYP2J19"
+```
+Now you should have a very small database, consisting of just the CYP2J19 nucleotide sequence
+
+```
+magicblast -query subsample_1.fq -query_mate subsample_1.fq -db CYP2J19 -infmt fastq -outfmt sam -no_unaligned -out HEK_CYP2J19_blast.sam
+```
+The options here are similar to basic blast:
+- `-db` points toward our blast database (search target)
+- `-query` and `-querymate` specify the forward and reverse of paired reads
+- `infmt` specifies the format that the raw reads are in
+- `num_aligments` sets the number of blast hits to return for each quary
+- `outfmt` you can select a "sam" file or a table. More details [here](https://ncbi.github.io/magicblast/doc/output.html)
+- `no_unaligned` returns only reads that align to the database, otherwise it will return all of the reads and mark aligned and unaligned with the sam flag
+- `-out` specified the output file
+
+* [mblast.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/mblast.sh)
+* [mblast.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/mblast.sbatch)
+
+The result of our search is a sam file containing all of the reads that matched the database: 
+
+```
+(base) [mbtoomey@schooner3 raw_read_blast]$ cat HEK_CYP2J19_blast.sam
+@HD     VN:1.0  GO:query
+@SQ     SN:HOFI_CYP2J19 LN:1494
+@PG     ID:magicblast   PN:magicblast   CL:magicblast -query subsample_1.fq -query_mate subsample_1.fq -db CYP2J19 -infmt fastq -outfmt sam -no_unaligned -out HEK_CYP2J19_blast.sam
+LH00260:42:222HHLLT4:2:1136:6300:19728  113     HOFI_CYP2J19    241     60      151M    =       241     -151CAGTTTGGAAGTCTGACATTCGTGGTGGTCAACGGGTACCAGATGGTGAGAGAAGCTCTTGTCCACCAGGCTGAAATATTTGCTGACCGGCCAAATATTCCACTCCTCCAAGAAATATTTAGAGGCTTTGGGCTCATATCATCCAACGGGC     II9IIIIIIIIIII9IIIIIIII9IIIII9IIIIIIIIIIIIII9IIIIIII-IIIIIIIIIIIIII-IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII     NH:i:1  AS:i:151    NM:i:0
+LH00260:42:222HHLLT4:2:1136:6300:19728  177     HOFI_CYP2J19    241     60      151M    =       241     -151CAGTTTGGAAGTCTGACATTCGTGGTGGTCAACGGGTACCAGATGGTGAGAGAAGCTCTTGTCCACCAGGCTGAAATATTTGCTGACCGGCCAAATATTCCACTCCTCCAAGAAATATTTAGAGGCTTTGGGCTCATATCATCCAACGGGC     II9IIIIIIIIIII9IIIIIIII9IIIII9IIIIIIIIIIIIII9IIIIIII-IIIIIIIIIIIIII-IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII     NH:i:1  AS:i:151    NM:i:0
+LH00260:42:222HHLLT4:2:1154:21231:18398 113     HOFI_CYP2J19    116     60      151M    =       116     -151GACCCAGGAATTTCCCTCCAGGGCCGCAGCTCTTTCCTCTCGTGGGAACCTTTGTGGACTTTAAGCAGCCCCTCCATCTTGCACTGCAGAAGCTTACGGGTCGGTACGGGAACATCTTCAGCGTGCAGTTTGGAAGTCTGACATTCGTGGT     9IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII     NH:i:1  AS:i:146    NM:i:1
+LH00260:42:222HHLLT4:2:1154:21231:18398 177     HOFI_CYP2J19    116     60      151M    =       116     -151GACCCAGGAATTTCCCTCCAGGGCCGCAGCTCTTTCCTCTCGTGGGAACCTTTGTGGACTTTAAGCAGCCCCTCCATCTTGCACTGCAGAAGCTTACGGGTCGGTACGGGAACATCTTCAGCGTGCAGTTTGGAAGTCTGACATTCGTGGT     9IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII     NH:i:1  AS:i:146    NM:i:1
+```
+If we want to visualize these reads we can convert the sam to a bam file and load it into IGV. 
+
+```
+samtools view -b -S -T CYP2J19.fasta HEK_CYP2J19_blast.sam -o HEK_CYP2J19_blast.bam
+
+samtools sort HEK_CYP2J19_blast.bam -o HEK_CYP2J19_blast_sort.bam
+
+samtools index HEK_CYP2J19_blast_sort.bam
+```
+
+* [blast_bam.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/blast_bam.sh)
+* [blast_bam.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/blast_bam.sbatch)
+
+Now download `CYP2J19.fasta`, `CYP2J19.fasta.fai`, `HEK_CYP2J19_blast_sort.bam`, and `HEK_CYP2J19_blast_sort.bam.bai` to you PC and load them into IGV using `CYP2J19.fasta` as the "genome". 
+
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/annotation_1.png)
+
+Now we can see where the reads are mapping within this particular transcript and pick out SNPs. You might notice that is redundant with the mapping approaches we have discussed elsewhere. However, magicblast may perform better with error prone sequencing (i.e. nanopore reads) and may offer imporved intron detection [(Boratyn et al. 2019)](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-019-2996-x).
+
+
+
+
+
