@@ -563,7 +563,7 @@ samtools index HEK_CYP2J19_blast_sort.bam
 
 Now download `CYP2J19.fasta`, `CYP2J19.fasta.fai`, `HEK_CYP2J19_blast_sort.bam`, and `HEK_CYP2J19_blast_sort.bam.bai` to you PC and load them into IGV using `CYP2J19.fasta` as the "genome". 
 
-![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/annotation_1.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/Annotation_1.png)
 
 Now we can see where the reads are mapping within this particular transcript and pick out SNPs. You might notice that is redundant with the mapping approaches we have discussed elsewhere. However, magicblast may perform better with error prone sequencing (i.e. nanopore reads) and may offer imporved intron detection [(Boratyn et al. 2019)](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-019-2996-x).
 
