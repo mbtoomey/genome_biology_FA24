@@ -9,4 +9,4 @@
 #SBATCH --job-name=mkdb
 # 
 
-bash diamond_mkdb.sh
+bash diamond_mkdb_HEK.sh
