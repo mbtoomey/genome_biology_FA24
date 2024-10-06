@@ -22,7 +22,7 @@ For this example we will analyze RNA-Seq data from an experiment in my lab. Rece
 
 We have also discovered that the activity of these enzymes in enhanced by the expression of the protein TTC39B.
 
-![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image1.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image2.png)
 
 However, we do not know how TTC39B is enhancing carotenoid metabolism. Therefore, we wanted to know if and how **TTC39B** expression alters gene expression within cells. To do this we cultured [HEK293 cells] and transfected these cells with expression constructs for **CYP2J19** and **BDH1L** or **CYP2J19**, **BDH1L**, and **TTC39B**
 
