@@ -26,7 +26,7 @@ We have also discovered that the activity of these enzymes in enhanced by the ex
 
 However, we do not know how TTC39B is enhancing carotenoid metabolism. Therefore, we wanted to know if and how **TTC39B** expression alters gene expression within cells. To do this we cultured [HEK293 cells] and transfected these cells with expression constructs for **CYP2J19** and **BDH1L** or **CYP2J19**, **BDH1L**, and **TTC39B**
 
-![]((https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image3.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image3.png)
 
 After 48 hours of expression, we harvested these cells, extracted RNA, and prepare short-read sequencing libraries with poly A selection to enrich for protein coding transcripts. Then we carried our paired-end 2x150 Illumina sequencing. 
 
