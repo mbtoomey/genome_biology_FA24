@@ -24,7 +24,7 @@ We have also discovered that the activity of these enzymes in enhanced by the ex
 
 ![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image2.png)
 
-However, we do not know how TTC39B is enhancing carotenoid metabolism. Therefore, we wanted to know if and how **TTC39B** expression alters gene expression within cells. To do this we cultured [HEK293 cells](https://en.wikipedia.org/wiki/HEK_293_cells) and transfected these cells with expression constructs for **CYP2J19** and **BDH1L** or **CYP2J19**, **BDH1L**, and **TTC39B**
+However, we do not know how TTC39B is enhancing carotenoid metabolism. Therefore, we wanted to know if and how *TTC39B* expression alters gene expression within cells. To do this we cultured [HEK293 cells](https://en.wikipedia.org/wiki/HEK_293_cells) and transfected these cells with expression constructs for *CYP2J19* and *BDH1L* or *CYP2J19*, *BDH1L*, and *TTC39B*
 
 ![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image3.png)
 
@@ -64,7 +64,7 @@ Now I recommend running everything from within the `RNAseq_Example` folder. This
 
 ### Reference transcriptome
 
-Since these are human cells I download the human reference transcription [GCF_000001405.40_GRCh38.p14_rna_from_genomic.fna.gz ](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/) and added the coding sequences of **CYP2J19**, **BDH1L**, and **TTC39B** genes from our expression constructs. 
+Since these are human cells I download the human reference transcription [GCF_000001405.40_GRCh38.p14_rna_from_genomic.fna.gz ](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/) and added the coding sequences of  *CYP2J19*, *BDH1L*, and *TTC39B* genes from our expression constructs. 
 
 ## Pseudoalignement and quantification with Kallisto 
 
