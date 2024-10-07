@@ -1,0 +1,6 @@
+./output/CB1 CB1_S88_R1_001.fastq.gz CB1_S88_R2_001.fastq.gz
+./output/CB2 CB2_S89_R1_001.fastq.gz CB2_S89_R2_001.fastq.gz
+./output/CB3 CB3_S90_R1_001.fastq.gz CB3_S90_R2_001.fastq.gz
+./output/CBT1 CBT1_S91_R1_001.fastq.gz CBT1_S91_R2_001.fastq.gz
+./output/CBT2 CBT2_S92_R1_001.fastq.gz CBT2_S92_R2_001.fastq.gz
+./output/CBT3 CBT3_S93_R1_001.fastq.gz CBT3_S93_R2_001.fastq.gz
