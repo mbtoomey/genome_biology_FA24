@@ -34,9 +34,9 @@ September 12  | [Alignment and Assembly](https://github.com/mbtoomey/genome_biol
 September 19  | [Project meetings](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing) | - | -
 September 26  | [Genome assembly evaluation](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/Lecture3_Genome_Assembly_Evaluation.pdf) | Chapter 5 & 6 (Brown) | [Genome Evaluation Practical](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/Genome_Eval.md),[Genomics Adventure Chapter 3](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_3/task_1.md)
 October 3 | [Genome & Transcriptome Annotation](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/annotation.md) | Chapter 5 & 6 (Brown) | [Genomics Adventure Chapter 4](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_4/task_1.md)
-October 10 | Genome Structure and Organization | Chapter 7-9 (Brown) | [Genomics Adventure Chapter 5](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_5/task_1.md)
+October 10 | [RNA-seq Analyses](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/RNAseq.md) |Chapters 10-12 (Brown) | [RNA-seq Analyses](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/RNAseq.md)
 October 17  | No class | -
-October 24  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | [RNA-seq Analyses]()
+October 24  | Genome Structure and Organization | Chapter 7-9 (Brown) | [Genomics Adventure Chapter 5](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_5/task_1.md) 
 October 31  | Gene Expression and Transcriptomics | Chapters 10-12 (Brown) | [RNA-seq Analyses]()
 November 7   | Causes, Consequences, and Analysis of Sequence Variation | Chapters 15 & 17 (Brown) | [Variant Calling and Genome-wide FST]()
 November 14  | [Class Project Presentations](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing) | - | -    
