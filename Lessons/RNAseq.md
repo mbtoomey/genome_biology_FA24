@@ -397,6 +397,41 @@ pheatmap(k_DEG_select, cexRow = 0.4, cexCol = 0.4, scale = "none")
 ```
 ![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image5.png)
 
+## Gene ontology analysis
+
+What do our differentially expressed genes (DEGs) do? What biological processes might or treatment be affecting. To explore this we can look to see if transcripts with specific known functions are enriched among our DEGs. 
+
+[Xijin Ge's](https://www.sdstate.edu/directory/xijin-ge) group at South Dakota State has a very nice online tool for these analyses - [ShinyGo](http://bioinformatics.sdstate.edu/go/). All we need to provide is a list of the gene symbols of our DEGs and a list of all of the genes in our transcriptome. We can extract these form our `transcripts_all` dataframe. 
+
+```
+#filter for transcripts enriched in the TTC treatment
+transcripts_up <- dplyr::filter(transcripts_all, qval <= 0.05, b > 0)
+
+up<-transcripts_up %>%
+  dplyr::select(gene)
+
+#filter for transcripts depleted in the TTC treatment
+transcripts_down <- dplyr::filter(transcripts_all, qval <= 0.05, b < 0)
+
+down<-transcripts_down %>%
+  dplyr::select(gene)
+
+#output the full transcript list
+all<-transcripts_all %>%
+  dplyr::select(gene)
+
+#copy to clipboard and paste into ShinyGo website
+writeClipboard(as.character(up))
+
+#copy to clipboard and paste into ShinyGo "background"
+writeClipboard(as.character(all))
+```
+There are a huge variety of analyses avilable on ShinyGO. I encourage you to explore! Here is the GO Biological Process enrichment for the TTC dataset. Interestingly, TTC seems to enhance transcriptional processes :shrug: 
+
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image5.png)
+
+
+
 
 
 
