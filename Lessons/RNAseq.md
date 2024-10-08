@@ -368,9 +368,34 @@ EnhancedVolcano(forVolacano,
 
 ### Heatmap of transcripts
 
-Another common way to visualize differential gene expression among treatment groups with with a heatmap. 
+Another common way to visualize differential gene expression among treatment groups and samples is with a heatmap. To plot the heat map we will need to exact the counts for each transcript and sample. This data is contained within the sleuth object `so` and we can export it with the `kallisto_table`
+```
+k_table <- kallisto_table(so, normalized = TRUE)
+```
+The `normalized` option will return values that have normalized for variation is sequencing depth and composition across the samples. Sleuth uses the [DESeq2 method](https://hbctraining.github.io/DGE_workshop/lessons/02_DGE_count_normalization.html) for count normalization. We will plot the transcripts per million reads (tpm) which accounts for sequencing depth and gene length for each transcript. 
 
+For plotting we need apply a log10 transfomation and convert this dataset into a square matrix: 
+```
+k_DEG_select<-k_DEG %>%
+  #apply log10 transformation to the tpm data
+  mutate(log_tpm = log10(tpm+1)) %>%
+  #select the specifc columns to plot
+  dplyr::select(target_id, sample, log_tpm, gene) %>%
+  #create "label" from the transcript id and gene symbol
+  mutate(label = paste(target_id, gene))%>%
+  #pivot data frame to a wide format
+  pivot_wider(names_from = sample, values_from = log_tpm) %>%
+  #drop the target_id and gene variables
+  dplyr::select(!target_id & !gene) %>%
+  #convert label to row name
+  column_to_rownames("label") %>%
+  #convert to matrix
+  as.matrix(rownames.force = TRUE) 
 
+#plot with pheatmap!
+pheatmap(k_DEG_select, cexRow = 0.4, cexCol = 0.4, scale = "none")
+```
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image5.png)
 
 
 
