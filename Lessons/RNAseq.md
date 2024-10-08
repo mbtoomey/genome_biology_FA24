@@ -428,7 +428,7 @@ writeClipboard(as.character(all))
 ```
 There are a huge variety of analyses avilable on ShinyGO. I encourage you to explore! Here is the GO Biological Process enrichment for the TTC dataset. Interestingly, TTC seems to enhance transcriptional processes :shrug: 
 
-![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image5.png)
+![](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/RNAseq_image6.png)
 
 
 
