@@ -177,6 +177,8 @@ The output including read counts and measurement variance are contained in the `
 Before we leave the OSCER let's prepare a file that contains the transcript ID and the gene symbols. We will need this later. To do this we can use [grep](https://www.gnu.org/software/grep/manual/grep.html) to pull the headers from the transcriptome file and then we can pipe   `|` this to a [sed](https://www.gnu.org/software/sed/manual/sed.html) command that will parse the headers and write the ID and gene symbols to a new file. 
 
 ```
+ln -s /scratch/mbtoomey/RNAseq_example/GRCh38_latest_rna_with_ORF.fna GRCh38_latest_rna_with_ORF.fna
+
 grep  '^>' GRCh38_latest_rna_with_ORF.fna | sed -E 's/>([^ ]+) .* \(([^)]+)\).*/\1 \2/' > TTC_headers.txt
 ```
 Download `TTC_headers.txt` to the `DEG_analysis` folder on your local computer as well. 
