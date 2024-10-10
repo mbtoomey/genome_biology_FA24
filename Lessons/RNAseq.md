@@ -373,6 +373,9 @@ EnhancedVolcano(forVolacano,
 Another common way to visualize differential gene expression among treatment groups and samples is with a heatmap. To plot the heat map we will need to exact the counts for each transcript and sample. This data is contained within the sleuth object `so` and we can export it with the `kallisto_table`
 ```
 k_table <- kallisto_table(so, normalized = TRUE)
+
+k_DEG <- k_table %>%
+  right_join(transcripts_50, "target_id")
 ```
 The `normalized` option will return values that have normalized for variation is sequencing depth and composition across the samples. Sleuth uses the [DESeq2 method](https://hbctraining.github.io/DGE_workshop/lessons/02_DGE_count_normalization.html) for count normalization. We will plot the transcripts per million reads (tpm) which accounts for sequencing depth and gene length for each transcript. 
 
