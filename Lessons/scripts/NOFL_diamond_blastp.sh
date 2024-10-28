@@ -1,0 +1,1 @@
+diamond blastp --threads 8 --outfmt 6 -k 1 -d bird_proteins.dmnd -q NOFL_Chr3.aa -o NOFL_blastp.tsv
