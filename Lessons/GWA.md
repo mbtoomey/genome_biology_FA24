@@ -1,4 +1,4 @@
-# Genome Wide Assosciation Analyses
+# Genome Wide Association
 
 Genome-wide association (GWA) analyses aim to characterize the genetic differences among populations and identify genotype to phenotype associations. These studies involve the resequencing of individuals, mapping of sequence reads to a high-quality references genome, the calling of genetic variants (usually SNPs), and statistical approaches to test and characterize the distribution of those variants among samples.
 
