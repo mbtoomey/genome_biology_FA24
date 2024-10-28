@@ -48,9 +48,9 @@ mamba activate /home/mbtoomey/.conda/envs/GWA
 
 ## Genetic distance calculation between populations 
 
-We can start by assessing the level of genetic differentiation between allopatric populations of the eastern, yellow-shafted and western, red-shafted flickers by calculating the fixation index (*F~ST~*). This a classic measure of differentation that compares the number of SNPS within and between populations. We can calculate this for the entire genome, but for our purposes we would like to scan the genome for regions with high *F~ST~* to do this we will define a window of 10 kb and then slide this along the chromosome in 2 kb steps. 
+We can start by assessing the level of genetic differentiation between allopatric populations of the eastern, yellow-shafted and western, red-shafted flickers by calculating the fixation index (F~ST~). This a classic measure of differentation that compares the number of SNPS within and between populations. We can calculate this for the entire genome, but for our purposes we would like to scan the genome for regions with high F~ST~ to do this we will define a window of 10 kb and then slide this along the chromosome in 2 kb steps. 
 
-We will use vcftools to calculate the Weir and Cockerham [(1984)](https://www.jstor.org/stable/2408641) *F~ST~*. First, set up two text files listing the sample in each population. You can do this locally and upload, or try [nano](https://www.nano-editor.org/) in the command line.  
+We will use vcftools to calculate the Weir and Cockerham [(1984)](https://www.jstor.org/stable/2408641) F~ST~. First, set up two text files listing the sample in each population. You can do this locally and upload, or try [nano](https://www.nano-editor.org/) in the command line.  
 
 RSFL_indivs.txt:
 ```
@@ -90,7 +90,7 @@ Here are my .sh and .sbatch files
 * [fst.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/fst.sh)
 * [fst.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/fst.sbatch)
 
-The result is a the `RSFL_YSFL_10kb.windowed.weir.fst` file with *F~ST~* values for each step: 
+The result is a the `RSFL_YSFL_10kb.windowed.weir.fst` file with F~ST~ values for each step: 
 
 ```
 CHROM   BIN_START       BIN_END N_VARIANTS      WEIGHTED_FST    MEAN_FST
