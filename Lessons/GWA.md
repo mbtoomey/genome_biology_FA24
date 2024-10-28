@@ -118,7 +118,9 @@ To prepare the variant data for GWA we will use [Beagle](https://faculty.washing
 * phase the genotypes (i.e. infer haplotypes) of the individuals in the samples.
 * infer sporadic missing genotype data.
 
-`beagle gt=flicker_chr3.recode.rename.vcf nthreads=20 out=flicker_chr3.phased`
+```
+beagle gt=flicker_chr3.recode.rename.vcf nthreads=20 out=flicker_chr3.phased
+```
 
 * [beagle.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/beagle.sh)
 * [beagle.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/beagle.sbatch)
@@ -167,12 +169,16 @@ then
 
 `plink --file flicker_chr3_outputPlinkformat --make-bed --out flicker_chr3_HZ_bed`
 
-Now we should have three files: 
-
-`flicker_chr3_HZ_bed.bed, flicker_chr3_HZ_bed.bim, flicker_chr3_HZ_bed.nosex, flicker_chr3_HZ_bed.fam`
-
 * [plink.sh](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/plink.sh)
 * [plink.sbatch](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/scripts/plink.sbatch)
+
+Now we should have three files: 
+
+- `flicker_chr3_HZ_bed.bed`
+- `flicker_chr3_HZ_bed.bim` 
+- `flicker_chr3_HZ_bed.nosex`
+- `flicker_chr3_HZ_bed.fam`
+
 
 We now need to edit the `flicker_chr3_HZ_bed.fam` to add columns for the phenotype measures from `sample_info.txt`. To do this I download these two files to my local PC and ran the following in R: 
 
