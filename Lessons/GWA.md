@@ -1,6 +1,6 @@
 # Genome Wide Association
 
-Genome-wide association (GWA) analyses aim to characterize the genetic differences among populations and identify genotype to phenotype associations. These studies involve the resequencing of individuals, mapping of sequence reads to a high-quality references genome, the calling of genetic variants (usually SNPs), and statistical approaches to test and characterize the distribution of those variants among samples.
+Genome-wide association (GWA) analyses aim to characterize the genetic differences among populations and identify genotype to phenotype associations. These studies involve the resequencing of individuals, mapping of sequence reads to a high-quality references genome, the calling of genetic variants (usually SNPs), and statistical approaches to test and characterize the distribution of those variants among samples. This recent [primer](https://www.nature.com/articles/s43586-021-00056-9) provides a nice introduction to GWAS with an emphasis on human health. 
 
 For this example, we will replicate analyses from a [Aguillon et al. (2021)](https://royalsocietypublishing.org/doi/10.1098/rspb.2020.1805) of the northern flicker (*Colaptes auratus*). This species occurs as two subspecies inhabiting eastern North America (yellow-shafted) and western North America (red-shafted) with a zone of hybridization in the great plains. 
 
@@ -36,10 +36,10 @@ cd flicker_gwa
 ```
 Now make a symbolic link to the vcf file, genome, sample info:
 ```
-ln -s /scratch/mbtoomey/flicker_gwa/flicker_chr3.recode.rename.vcf flicker_chr3.recode.rename.vcf
-ln -s /scratch/mbtoomey/flicker_gwa/sample_info.txt sample_info.txt
-ln -s /scratch/mbtoomey/flicker_gwa/NOFL_Chr3.fasta NOFL_Chr3.fasta
-ln -s /scratch/mbtoomey/flicker_gwa/NOFL_Chr3.gff NOFL_Chr3.gff
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/flicker_chr3.recode.rename.vcf flicker_chr3.recode.rename.vcf
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/sample_info.txt sample_info.txt
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/NOFL_Chr3.fasta NOFL_Chr3.fasta
+ln -s /home/mbtoomey/BIOL7263_Genomics/Example_data/NOFL_Chr3.gff NOFL_Chr3.gff
 ```
 To access the programs we will need for the next few steps activate the GWA environment:
 ```
