@@ -37,8 +37,8 @@ October 3 | [Genome & Transcriptome Annotation](https://github.com/mbtoomey/geno
 October 10 | [RNA-seq Analyses](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/RNAseq.md) |Chapters 10-12 (Brown) | [RNA-seq Analyses](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/RNAseq.md)
 October 17  | No class | -
 October 24  | [Eukaryotic Genome Structure and Features](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/Lecture_7_Genome_Structure.pdf) | Chapter 7-9 (Brown) | [Genomics Adventure Chapter 5](https://github.com/mbtoomey/genomics_adventure/blob/release/chapter_5/task_1.md) 
-October 31   | [Genome-wide Association](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/GWA.md) | Chapters 15 & 17 (Brown) | - 
-November 7   | TBD | TBD | TBD
+October 31   | [Genome-wide Association](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/GWA.md) | Chapters 15 & 17 (Brown) | [Genome-wide Association](https://github.com/mbtoomey/genome_biology_FA24/blob/main/Lessons/GWA.md) 
+November 7   | Class project open session | - | -
 November 14  | [Class Project Presentations](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing) | - | -    
 November 21  | [Class Project Presentations](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing)  | - | -  
 November 28  | Thanksgiving break | - | - 
