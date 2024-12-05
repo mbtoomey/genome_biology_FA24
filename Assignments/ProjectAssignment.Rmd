@@ -19,6 +19,7 @@ Each student will complete an independent sequence assembly, alignment, annotati
 
 2) Well documented and *reproducible* analysis (50 pts - **due Dec 9th**)
 - a markdown document describing your data sources, analysis steps, and links to .sh and .sbatch files to run analyses
+- [Markdown template](Lessons/project_example.md)
 
 3) Class presentation reporting your progess on your project (~25 min - 50 pts - **sign up for presentation time below**)
 - *Introduction* - study species/system and relevant background

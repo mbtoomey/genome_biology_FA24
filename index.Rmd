@@ -43,7 +43,7 @@ November 14  | [Class Project Presentations](https://docs.google.com/spreadsheet
 November 21  | [Class Project Presentations](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing)  | - | -  
 November 28  | Thanksgiving break | - | - 
 December 5  | [Class Project Presentations](https://docs.google.com/spreadsheets/d/1DVq0VemQlcY2oDZhtWaNZmfGDkfdZXTkxrJdSCjfZn8/edit?usp=sharing)  | - | - 
-December 9  | Last day of classes | - | [Project Markdown Due](Assignments/ProjectAssignment.html) 
+December 9  | Last day of classes | - | [Project Markdown Due - Template](Lessons/project_example.md) 
 
 ___
 
